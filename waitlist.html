@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join the Waitlist | REMI &amp; NNEOMA</title>
+  <meta name="description" content="Join the waitlist for REMI &amp; NNEOMA and be the first to know about new movies, exclusive premieres, and special offers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Inter:wght@300;400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html, body { height:100%; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0d0a08;
+      color: #fcf9f5;
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      min-height:100vh;
+      position:relative;
+    }
+    a, button, input, .btn, .back-link {
+    }
+    body::before {
+      content:''; position:fixed; inset:0; z-index:0;
+      background: url('five2 logo.png') center center / contain no-repeat;
+      opacity:.06;
+      pointer-events:none;
+    }
+    body::after {
+      content:''; position:fixed; inset:0; z-index:0;
+      background: radial-gradient(ellipse at center, rgba(200,169,110,.04) 0%, transparent 70%), #0d0a08;
+      pointer-events:none;
+    }
+    .waitlist-card {
+      position:relative; z-index:1;
+      background: linear-gradient(145deg, rgba(26,19,16,.97), rgba(13,10,8,.99));
+      border: 1px solid rgba(200,169,110,.15);
+      border-radius: 24px;
+      padding: 56px 44px 48px;
+      max-width: 460px;
+      width: 90vw;
+      text-align: center;
+      box-shadow: 0 40px 100px rgba(0,0,0,.5);
+    }
+    .waitlist-card .logo {
+      width: 60px; height: auto; margin-bottom: 20px;
+      opacity: .7;
+    }
+    .waitlist-card h1 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fcf9f5;
+      margin-bottom: 6px;
+      letter-spacing: .02em;
+    }
+    .waitlist-card h1 em {
+      font-style: normal;
+      color: #c8a96e;
+    }
+    .waitlist-card .sub {
+      color: rgba(252,249,245,.5);
+      font-size: .9rem;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    .waitlist-card .form-group {
+      margin-bottom: 16px;
+    }
+    .waitlist-card input {
+      width: 100%; padding: 16px 20px;
+      border-radius: 12px; border: 1px solid rgba(200,169,110,.2);
+      background: rgba(255,255,255,.05);
+      color: #fcf9f5; font-size: 1rem; font-family: 'Inter', sans-serif;
+      outline: none; transition: border-color .3s;
+    }
+    .waitlist-card input:focus {
+      border-color: #c8a96e;
+    }
+    .waitlist-card input::placeholder {
+      color: rgba(252,249,245,.25);
+    }
+    .waitlist-card .btn {
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      width:100%; padding:16px 32px; border-radius:12px;
+      font-family: 'Inter', sans-serif; font-size:1rem; font-weight:600;
+      border: none; cursor:pointer; transition:all .4s;
+      background: linear-gradient(135deg, #c8a96e, #b8944f);
+      color: #0d0a08;
+      margin-top: 4px;
+    }
+    .waitlist-card .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(200,169,110,.25);
+    }
+    .waitlist-card .btn:active {
+      transform: scale(.96);
+    }
+    .waitlist-card .btn:disabled {
+      opacity: .5; cursor: not-allowed; transform: none;
+    }
+    .success-msg {
+      display: none;
+    }
+    .success-msg.show {
+      display: block;
+    }
+    .success-msg .check {
+      display:inline-flex; align-items:center; justify-content:center;
+      width:64px; height:64px; border-radius:50%;
+      background: rgba(200,169,110,.12);
+      font-size:2rem; margin-bottom:16px; color:#c8a96e;
+    }
+    .success-msg h2 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size:1.2rem; color:#fcf9f5; margin-bottom:8px;
+    }
+    .success-msg p {
+      color: rgba(252,249,245,.5); font-size:.9rem; margin-bottom:28px;
+    }
+    .back-link {
+      display:inline-block; color:rgba(200,169,110,.5); font-size:.85rem;
+      text-decoration:none; transition:color .3s; margin-top:12px;
+    }
+    .back-link:hover { color:#c8a96e; }
+  </style>
+</head>
+<body>
+
+<div class="waitlist-card">
+  <img src="logo.png" alt="REMI &amp; NNEOMA" class="logo" />
+  <h1>Join the <em>Waitlist</em></h1>
+  <p class="sub">Be the first to know about new movies, exclusive premieres, and special offers.</p>
+
+  <div id="formFields">
+    <div class="form-group">
+      <input type="text" id="firstName" placeholder="First name" />
+    </div>
+    <div class="form-group">
+      <input type="email" id="waitlistEmail" placeholder="Email address" required />
+    </div>
+    <button class="btn" id="submitBtn">Join Now</button>
+  </div>
+
+  <div class="success-msg" id="successMsg">
+    <div class="check">&#10003;</div>
+    <h2>You're on the list!</h2>
+    <p>We'll keep you posted on new releases and exclusive events.</p>
+    <a href="index.html" class="btn">Back to Home</a>
+  </div>
+
+  <a href="index.html" class="back-link">&larr; Back to Home</a>
+  <p style="margin-top:24px;font-size:.4rem;color:rgba(200,169,110,.2);letter-spacing:.02em;"><a href="https://www.flaticon.com/free-icons/select" title="select icons" style="color:inherit;text-decoration:none;">Select icons created by Mihimihi - Flaticon</a></p>
+</div>
+
+<script>
+  document.getElementById('submitBtn').addEventListener('click', function() {
+    const email = document.getElementById('waitlistEmail').value.trim();
+    const name = document.getElementById('firstName').value.trim();
+    if (!email || !email.includes('@')) {
+      document.getElementById('waitlistEmail').style.borderColor = '#c0392b';
+      return;
+    }
+    document.getElementById('waitlistEmail').style.borderColor = '';
+    document.getElementById('formFields').style.display = 'none';
+    document.getElementById('successMsg').classList.add('show');
+  });
+
+  document.getElementById('waitlistEmail').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') document.getElementById('submitBtn').click();
+  });
+</script>
+
+</body>
+</html>

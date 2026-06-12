@@ -1,0 +1,2489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>REMI &amp; NNEOMA | A Five 2 Media Film</title>
+  <meta name="description" content="A powerful Nollywood drama inspired by the biblical story of Ruth and Naomi. Coming to cinemas June 26, 2026." />
+  <meta property="og:title" content="REMI &amp; NNEOMA" />
+  <meta property="og:description" content="A powerful Nollywood drama inspired by the biblical story of Ruth and Naomi. Coming to cinemas June 26, 2026." />
+  <meta property="og:image" content="Remi-&-Nneoma-Poster-1.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="https://www.instagram.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;700;900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700&display=swap" rel="stylesheet" />
+  <script defer src="//www.instagram.com/embed.js"></script>
+  <style>
+    :root {
+      --dark: #0d0a08;
+      --dark2: #1a1310;
+      --gold: #c8a96e;
+      --gold-light: #e8d5a8;
+      --cream: #f5efe6;
+      --white: #fcf9f5;
+      --side: clamp(16px, 4vw, 64px);
+      --heading-font: 'Cinzel Decorative', serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--dark);
+      color: var(--cream);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a, button, [role="button"], .btn, .hamburger, .nav-cta, .ml, .poster-card, .cast-profile, input, select, #scrollTop, #unmuteBtn, .footer-socials a, .logo-link {
+    }
+    #page-bg-video {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100vh; height: 100dvh;
+      z-index: -1; overflow: hidden;
+      pointer-events: none;
+    }
+    #page-bg-video video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    #page-bg-video::after {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: rgba(13,10,8,.45);
+    }
+    #siteSound {
+      position:fixed;
+      left:-9999px;
+      width:1px;
+      height:1px;
+      opacity:0;
+      pointer-events:none;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+    #loader {
+      position:fixed; z-index:10000; inset:0;
+      background:var(--dark);
+      display:flex; align-items:center; justify-content:center; flex-direction: column;
+      cursor:pointer;
+      transition:opacity 1.2s cubic-bezier(.4,0,.2,1), visibility 1.2s;
+    }
+    #loader.hidden { opacity:0; visibility:hidden; }
+    #loader.hidden ~ * .watermark { opacity:1; }
+    #loader .splash-logo {
+      width: 400px;
+      height: auto;
+      mask: linear-gradient(90deg, #000 0%, #000 50%, transparent 50%, transparent 100%);
+      mask-size: 300% 100%;
+      mask-position: 100% 0;
+      -webkit-mask: linear-gradient(90deg, #000 0%, #000 50%, transparent 50%, transparent 100%);
+      -webkit-mask-size: 300% 100%;
+      -webkit-mask-position: 100% 0;
+      animation: logoReveal 4s cubic-bezier(.4,0,.2,1) forwards;
+    }
+    @keyframes logoReveal {
+      0%   { mask-position: 100% 0; -webkit-mask-position: 100% 0; }
+      100% { mask-position: 0% 0;   -webkit-mask-position: 0% 0;   }
+    }
+    #loader .loading-text {
+      margin-top: 24px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: .7rem;
+      color: #fff;
+      letter-spacing: .35em;
+      text-transform: uppercase;
+    }
+    #loader .loading-text::after {
+      content: '';
+      display: inline-block;
+      width: 2px;
+      height: .8em;
+      background: #fff;
+      margin-left: 4px;
+      vertical-align: text-bottom;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%      { opacity: 0; }
+    }
+
+    #splash-flash {
+      position:fixed; z-index:9999; inset:0;
+      background:var(--gold); pointer-events:none;
+      opacity:0; transition:opacity .3s;
+    }
+    #splash-flash.active { opacity:1; }
+
+    header {
+      --nav-height: 140px; /* Reduced from 172px */
+      position:fixed; top:0; left:0; width:100%; z-index:1004;
+      min-height:var(--nav-height);
+      padding: 0 var(--side); /* Removed top/bottom padding */
+      display:grid; grid-template-columns:auto minmax(0, 1fr) auto; align-items:center;
+      gap:24px;
+      overflow:visible;
+      background:transparent;
+      border-bottom:0.5px solid rgba(252,249,245,0);
+      transition:transform .5s cubic-bezier(.4,0,.2,1), background .5s cubic-bezier(.4,0,.2,1), border-color .5s;
+    }
+    body.menu-open header {
+      background:transparent !important;
+      border-bottom-color:transparent !important;
+      backdrop-filter:none !important;
+      -webkit-backdrop-filter:none !important;
+    }
+    header.scrolled {
+      background:transparent;
+      border-bottom-color:rgba(252,249,245,0);
+      backdrop-filter:none;
+      -webkit-backdrop-filter:none;
+    }
+    body.menu-open header.hidden { transform:none; }
+    header.hidden { transform:translateY(-100%); }
+    .logo-link {
+      display:flex; align-items:center; flex-shrink:0;
+      position:relative; z-index:2;
+      width:min(290px, 42vw);
+      min-width:120px;
+      height: auto;
+      transform: translate(-20px, -6px);
+    }
+    .logo-link img {
+      width:100%; height:auto;
+      max-height:none; object-fit:contain; object-position:center;
+      display:block;
+      transition:transform .4s, opacity .4s;
+    }
+    .logo-link:hover img { transform: scale(1.1); opacity:.9; }
+
+    /* Universal Press Function */
+    a:active, button:active, .btn:active, .nav-cta:active, .hamburger:active, .ml:active, .poster-card:active, .cast-profile:active {
+      transform: scale(0.96) !important;
+      transition: transform 0.1s cubic-bezier(0, 0, 0.2, 1) !important;
+    }
+
+    nav.desktop-nav {
+      justify-self:center;
+      display:flex; gap:clamp(14px, 2.1vw, 34px); align-items:center; justify-content:center;
+      min-width:0;
+      transform: translateY(-12px); /* Shifted upward */
+    }
+    nav.desktop-nav a,
+    .nav-cta {
+      font-size:.68rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+      white-space:nowrap;
+    }
+    nav.desktop-nav a {
+      color:rgba(252,249,245,.68); transition:color .3s; position:relative; padding:10px 0;
+    }
+    nav.desktop-nav a::after {
+      content:''; position:absolute; bottom:4px; left:0; width:100%; height:1px;
+      background:var(--gold); transform:scaleX(0); transform-origin:right;
+      transition:transform .45s cubic-bezier(.4,0,.2,1);
+    }
+    nav.desktop-nav a:hover,
+    nav.desktop-nav a:focus-visible { color:var(--cream); }
+    nav.desktop-nav a:hover::after,
+    nav.desktop-nav a:focus-visible::after { transform:scaleX(1); transform-origin:left; }
+    .nav-actions { 
+      display:flex; align-items:center; justify-content:flex-end; gap:14px; 
+      transform: translateY(-12px); /* Shifted upward */
+    }
+    .nav-cta {
+      display:inline-flex; align-items:center; justify-content:center;
+      min-height:42px; padding:0 18px;
+      color:var(--dark); background:var(--gold);
+      border:1px solid rgba(232,213,168,.35);
+      transition:background .35s, color .35s, transform .35s, box-shadow .35s;
+    }
+    .nav-cta:hover,
+    .nav-cta:focus-visible {
+      background:var(--gold-light); transform:translateY(-2px);
+      box-shadow:0 14px 28px rgba(0,0,0,.25), 0 0 24px rgba(200,169,110,.18);
+    }
+
+    .hamburger {
+      display:none; flex-direction:column; justify-content:center; gap:6px; cursor:pointer;
+      width:46px; height:46px;
+      color:var(--cream);
+      padding:0; z-index:1005; margin-right:8px; margin-top:12px;
+      transition:background .35s;
+    }
+    .hamburger:hover,
+    .hamburger:focus-visible { background:rgba(200,169,110,.08); }
+    .hamburger span {
+      display:block; width:22px; height:1.5px; margin:0 auto;
+      background:currentColor; transition:all .4s cubic-bezier(.4,0,.2,1);
+    }
+    .hamburger.active span:nth-child(1) { transform:translateY(7.5px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity:0; transform:scaleX(0); }
+    .hamburger.active span:nth-child(3) { transform:translateY(-7.5px) rotate(-45deg); }
+
+    .mobile-menu {
+      position:fixed; inset:0;
+      background:rgba(13,10,8,.96);
+      backdrop-filter:blur(34px);
+      -webkit-backdrop-filter:blur(34px);
+      z-index:1003;
+      display:grid; grid-template-columns:minmax(0, 1fr) minmax(280px, 420px);
+      opacity:0; visibility:hidden; pointer-events:none;
+      transition:opacity .5s cubic-bezier(.4,0,.2,1), visibility .5s;
+    }
+    .mobile-menu::before {
+      content:''; position:absolute; inset:0;
+      background:
+        linear-gradient(90deg, rgba(13,10,8,.98) 0%, rgba(13,10,8,.7) 58%, rgba(26,19,16,.96) 100%),
+        url('16x9-Landscape-Remi-&-Nneoma.jpg') center/cover;
+      opacity:.72;
+    }
+    .mobile-menu.open { opacity:1; visibility:visible; pointer-events:auto; }
+    .mobile-menu__links,
+    .mobile-menu__aside {
+      position:relative; z-index:1;
+      min-height:100vh; min-height:100dvh;
+      padding: 0 var(--side) 60px; /* Removed static calc padding */
+    }
+    .mobile-menu__links {
+      display:flex; flex-direction:column; 
+      justify-content: flex-end; /* Push to bottom as requested */
+      align-items:center; gap:14px;
+      text-align: center;
+      padding-bottom: 12vh; /* Give some space at the very bottom */
+    }
+    .mobile-menu__eyebrow,
+    .mobile-menu__aside-label {
+      font-size:.58rem; font-weight:700; letter-spacing:.28em; text-transform:uppercase;
+      color:rgba(200,169,110,.72);
+      margin-bottom: 20px;
+    }
+    .mobile-menu .ml {
+      width:min(680px, 100%);
+      font-family:var(--heading-font);
+      font-size: 1.15rem; /* Further reduced font size */
+      font-weight:700; line-height:1.2; letter-spacing:0.05em; text-transform:uppercase;
+      color:var(--cream);
+      transition:color .35s, transform .45s cubic-bezier(.4,0,.2,1), opacity .45s;
+      position:relative; padding:12px 0;
+      transform:translateY(30px); opacity:0;
+    }
+    .mobile-menu .ml:hover {
+      transform: translateY(4px) !important; /* Scrolldown effect on hover */
+      color: var(--gold-light);
+    }
+    
+    .btn:hover, .nav-cta:hover, nav.desktop-nav a:hover {
+      transform: translateY(3px); /* Consistent scrolldown/press effect */
+    }
+    .mobile-menu.open .ml { opacity:1; transform:translateY(0); }
+    .mobile-menu.open .ml:nth-of-type(1) { transition-delay:.06s; }
+    .mobile-menu.open .ml:nth-of-type(2) { transition-delay:.10s; }
+    .mobile-menu.open .ml:nth-of-type(3) { transition-delay:.14s; }
+    .mobile-menu.open .ml:nth-of-type(4) { transition-delay:.18s; }
+    .mobile-menu.open .ml:nth-of-type(5) { transition-delay:.22s; }
+    .mobile-menu.open .ml:nth-of-type(6) { transition-delay:.26s; }
+    .mobile-menu.open .ml:nth-of-type(7) { transition-delay:.30s; }
+    .mobile-menu.open .ml:nth-of-type(8) { transition-delay:.34s; }
+    .mobile-menu.open .ml:hover,
+    .mobile-menu.open .ml:focus-visible { transform:translateX(8px); }
+    .mobile-menu__aside {
+      display:flex; flex-direction:column; justify-content:flex-end; gap:28px;
+      border-left:1px solid rgba(200,169,110,.12);
+      background:rgba(13,10,8,.32);
+    }
+    .mobile-menu__aside img { width:180px; max-width:72%; height:auto; opacity:.75; }
+    .mobile-menu__aside p {
+      max-width:280px;
+      font-size:.92rem; font-weight:300; line-height:1.8;
+      color:rgba(252,249,245,.62);
+    }
+    .mobile-menu__release {
+      display:grid; gap:4px;
+      padding-top:22px;
+      border-top:1px solid rgba(200,169,110,.14);
+    }
+    .mobile-menu__release strong {
+      font-family:var(--heading-font); font-size:1.18rem; font-weight:700; color:var(--cream);
+    }
+    .mobile-menu__release span {
+      font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(252,249,245,.42);
+    }
+    .mobile-menu__cta {
+      grid-column:1 / -1;
+      display:flex; align-items:center; justify-content:center;
+      padding:16px var(--side);
+      border-radius:0; font-size:.85rem; letter-spacing:.15em;
+    }
+    @media (max-width:1180px) {
+      header { grid-template-columns:auto 1fr auto; }
+      .logo-link { width:min(240px, 37vw); height: auto; }
+
+      nav.desktop-nav { gap:16px; }
+      nav.desktop-nav a, .nav-cta { font-size:.6rem; letter-spacing:.1em; }
+      .nav-cta { padding:0 14px; }
+    }
+    @media (max-width:980px) {
+      nav.desktop-nav, .nav-cta { display:none; }
+      .hamburger { display:flex; }
+    }
+    @media (max-width:768px) {
+      header { --nav-height:120px; padding:0 var(--side); }
+      .logo-link { width:210px; height: auto; }
+      .mobile-menu { grid-template-columns:1fr; overflow-y:auto; }
+      .mobile-menu::before {
+        background:
+          linear-gradient(180deg, rgba(13,10,8,.98) 0%, rgba(13,10,8,.82) 48%, rgba(26,19,16,.96) 100%),
+          url('16x9-Portrait-Remi-&-Nneoma.jpg') center/cover;
+      }
+      .mobile-menu__links { 
+        min-height: 100vh; min-height: 100dvh;
+        justify-content: flex-end; 
+        align-items:center; 
+        text-align:center; 
+        padding-top: 0;
+        padding-bottom: 15vh; 
+      }
+      .mobile-menu__aside {
+        min-height:auto; padding-top:0; border-left:none; background:transparent;
+      }
+      .mobile-menu__aside img { width:130px; }
+    }
+
+    .hero {
+      position:relative; height:100vh; height:100dvh; overflow:hidden; display:flex; align-items:center;
+      content-visibility:visible;
+    }
+    .hero-bg { position:absolute; inset:0; z-index:0; }
+    .hero-bg::after {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(135deg, rgba(13,10,8,.88) 0%, rgba(13,10,8,.25) 40%, rgba(13,10,8,.7) 100%);
+      z-index:1;
+    }
+    .hero-particle { position:absolute; inset:0; z-index:1; pointer-events:none; overflow:hidden; }
+    .hero-particle span {
+      position:absolute; width:2px; height:2px; background:var(--gold); border-radius:50%;
+      opacity:0; animation:particleFloat 6s infinite;
+    }
+    @keyframes particleFloat {
+      0% { opacity:0; transform:translateY(0) scale(0); }
+      20% { opacity:.6; }
+      80% { opacity:.6; }
+      100% { opacity:0; transform:translateY(-100vh) scale(1); }
+    }
+
+    .hero-content { position:relative; z-index:2; padding:0 var(--side); max-width:900px; }
+    .hero-badge {
+      display:inline-block; font-size:.55rem; font-weight:400; letter-spacing:.3em;
+      text-transform:uppercase; color:var(--gold); border:1px solid rgba(200,169,110,.3);
+      padding:6px 18px; margin-bottom:24px;
+      opacity:0; animation:heroUp 1.2s .3s cubic-bezier(.4,0,.2,1) forwards;
+    }
+    .hero-title {
+      width:100%; max-width:800px; margin:0 auto;
+      display:flex; flex-direction:column; align-items:flex-start; gap:0;
+      opacity:0; animation:heroUp 1.2s .5s cubic-bezier(.4,0,.2,1) forwards;
+    }
+    .hero-title img {
+      height:auto; display:block;
+    }
+    .hero-title img:first-child {
+      width:52%;
+    }
+    .hero-title img:last-child {
+      width:75%;
+    }
+    .hero-sub {
+      font-weight:300; font-style:italic; font-size:clamp(1rem,2.5vw,1.6rem);
+      color:var(--gold-light); margin-top:12px;
+      opacity:0; animation:heroUp 1.2s .7s cubic-bezier(.4,0,.2,1) forwards;
+    }
+    .hero-tagline {
+      font-size:clamp(.85rem,1.4vw,1.05rem); font-weight:300;
+      color:rgba(252,249,245,.6); line-height:1.8; margin-top:20px; max-width:520px;
+      opacity:0; animation:heroUp 1.2s .9s cubic-bezier(.4,0,.2,1) forwards;
+    }
+    .hero-actions { display:flex; gap:16px; margin-top:36px; flex-wrap:wrap; opacity:0; animation:heroUp 1.2s 1.1s forwards; }
+    @keyframes heroUp { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+
+    .btn {
+      display:inline-flex; align-items:center; gap:10px; padding:14px 32px;
+      font-size:.65rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase;
+      border:none; cursor:pointer; transition:all .4s cubic-bezier(.4,0,.2,1);
+      position:relative; overflow:hidden;
+    }
+    .btn:active { transform:scale(.95); }
+    .btn::after {
+      content:''; position:absolute; inset:0;
+      background:rgba(255,255,255,.15);
+      opacity:0; transition:opacity .15s;
+    }
+    .btn:active::after { opacity:1; }
+    .btn-primary { background:var(--gold); color:var(--dark); }
+    .btn-primary:hover { background:var(--gold-light); transform:translateY(-3px); box-shadow:0 12px 30px rgba(200,169,110,.25); }
+    .btn-outline { background:transparent; color:var(--cream); border:1px solid rgba(252,249,245,.25); }
+    .btn-outline:hover { border-color:var(--gold); color:var(--gold); transform:translateY(-3px); }
+    .btn-instagram {
+      background:linear-gradient(135deg,#833ab4,#fd1d1d,#f77737,#fcaf45);
+      color:#fff; font-size:.65rem;
+    }
+    .btn-instagram:hover { transform:translateY(-3px); box-shadow:0 8px 25px rgba(225,48,108,.3); }
+
+    section { position:relative; overflow:hidden; content-visibility:auto; contain-intrinsic-size:600px; }
+    @media (max-width:768px) { section { content-visibility:visible; } }
+    .section-inner { padding:100px var(--side); max-width:1200px; margin:0 auto; }
+
+    /* Section fade-in on scroll */
+    section:not(.hero):not(#trailer) {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+    }
+    section:not(.hero):not(#trailer).sec-visible {
+      opacity: 1; transform: translateY(0);
+    }
+    .parallax-bg { will-change:transform; }
+
+    .section-label { display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+    .section-label .line { width:24px; height:1px; background:var(--gold); }
+    .section-label span { font-size:.55rem; font-weight:400; letter-spacing:.25em; text-transform:uppercase; color:var(--gold); }
+
+    .section-title {
+      font-family:var(--heading-font);
+      font-size:clamp(2rem,5vw,3.5rem); font-weight:700; color:var(--white); line-height:.95;
+    }
+    .section-title em { font-style:italic; color:var(--gold); font-weight:400; }
+
+    /* Story sticky cards — see scroll aesthetics section */
+
+    .stats-row {
+      display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+      background:rgba(200,169,110,.08); margin:0 var(--side);
+      max-width:1200px; margin-left:auto; margin-right:auto;
+      transform:translateY(-60px); position:relative; z-index:3;
+    }
+    .stat-item { padding:40px 20px; text-align:center; background:rgba(26,19,16,.7); transition:background .3s; }
+    .stat-item:hover { background:rgba(200,169,110,.08); }
+    .stat-item .num { font-size:2rem; font-weight:900; color:var(--gold); letter-spacing:-.02em; }
+    .stat-item .label { font-size:.55rem; font-weight:400; letter-spacing:.15em; text-transform:uppercase; color:rgba(252,249,245,.35); margin-top:6px; }
+
+    /* CAST SECTION - Horizontal scroll with large cinematic profiles */
+    #cast {
+      position: relative;
+      height: 100vh;
+      height: 100dvh;
+      display: flex;
+      align-items: center;
+    }
+    #cast .cast-bg-overlay {
+      position: absolute; inset: 0; z-index: 0;
+      overflow: hidden;
+    }
+    #cast .cast-bg-overlay img {
+      width: 100%; height: 100%; object-fit: cover;
+      opacity: 0.08;
+      filter: grayscale(1) blur(2px);
+    }
+    #cast .cast-bg-overlay::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(13,10,8,0.92) 0%, rgba(13,10,8,0.5) 50%, rgba(13,10,8,0.92) 100%);
+    }
+
+    .cast-inner {
+      position:relative; z-index:1;
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 40px 0;
+      cursor: grab;
+    }
+    .cast-inner::-webkit-scrollbar { display: none; }
+    .cast-inner:active { cursor: grabbing; }
+
+    /* Smooth fade edges on cast scroll */
+    .cast-inner::before,
+    .cast-inner::after {
+      content: ''; position: fixed; top: 0; bottom: 0; z-index: 2;
+      width: 120px; pointer-events: none;
+    }
+    .cast-inner::before {
+      left: 0;
+      background: linear-gradient(90deg, rgba(13,10,8,1) 0%, rgba(13,10,8,0) 100%);
+    }
+    .cast-inner::after {
+      right: 0;
+      background: linear-gradient(270deg, rgba(13,10,8,1) 0%, rgba(13,10,8,0) 100%);
+    }
+
+    .cast-header {
+      padding: 0 var(--side);
+      max-width: 1200px;
+      margin: 0 auto 48px;
+    }
+
+    .cast-grid {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 80px;
+      padding: 0 var(--side);
+      width: max-content;
+    }
+
+    .cast-profile {
+      text-align:center;
+      flex-shrink: 0;
+      width: 520px;
+      transition: transform .5s cubic-bezier(.4,0,.2,1), filter .5s;
+    }
+    .cast-profile:hover {
+      transform: scale(1.03);
+      filter: brightness(1.1);
+    }
+
+    .cast-avatar {
+      width: 480px; height: 480px;
+      margin: 0 auto 28px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 6px solid rgba(200,169,110,.3);
+      transition: border-color .5s, box-shadow .5s, transform .5s;
+      position:relative;
+      box-shadow: 0 0 40px rgba(200,169,110,.1), 0 20px 60px rgba(0,0,0,.5);
+    }
+    .cast-avatar:hover {
+      border-color:var(--gold);
+      box-shadow: 0 0 80px rgba(200,169,110,.3), 0 30px 80px rgba(0,0,0,.6);
+      transform:scale(1.05);
+    }
+    .cast-avatar img {
+      width:100%; height:100%;
+      object-fit:cover;
+      object-position:center 18%;
+      transition:transform .8s cubic-bezier(.4,0,.2,1);
+    }
+    .cast-avatar:hover img { transform:scale(1.12); }
+    .cast-avatar .placeholder {
+      width:100%; height:100%;
+      display:flex; align-items:center; justify-content:center;
+      background:rgba(200,169,110,0.06);
+      color:rgba(200,169,110,0.3);
+      font-family:var(--heading-font);
+      font-size:2.5rem; font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:0.05em;
+    }
+
+    .cast-info .cast-name {
+      font-family:var(--heading-font); font-size:1.4rem; font-weight:700;
+      color:var(--white); line-height:1.2;
+    }
+    .cast-info .cast-name em { font-style:normal; color:var(--gold); font-weight:400; }
+    .cast-info .cast-role {
+      font-size:.7rem; font-weight:400;
+      letter-spacing:.2em; text-transform:uppercase;
+      color:rgba(200,169,110,.5);
+      margin-top:6px;
+    }
+
+    /* CREW SECTION - Movie ending credits scroll */
+    #crew {
+      position: relative;
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+      font-family: 'Lato', sans-serif;
+      background: #0d0a08;
+    }
+    #crew .crew-bg-overlay {
+      position: absolute; inset: 0; z-index: 0;
+      overflow: hidden;
+    }
+    #crew .crew-bg-overlay img {
+      width: 100%; height: 100%; object-fit: cover;
+      opacity: 0.035;
+      filter: grayscale(1) blur(8px);
+    }
+    #crew .crew-bg-overlay::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(13,10,8,0.97) 0%, rgba(13,10,8,0.75) 50%, rgba(13,10,8,0.97) 100%);
+    }
+    .crew-credits-viewport {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .crew-credits-content {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 720px;
+      padding: 20px var(--side) 40px;
+      animation: creditsScroll 80s linear infinite;
+      animation-play-state: paused;
+    }
+    #crew.credits-running .crew-credits-content {
+      animation-play-state: running;
+    }
+    @keyframes creditsScroll {
+      0% { top: 105%; }
+      100% { top: calc(-100% - 300px); }
+    }
+
+    /* Credits typography */
+    #crew .section-label { justify-content: center; margin-bottom: 10px; }
+    #crew .section-title { text-align: center; }
+    #crew .crew-header {
+      text-align: center;
+      padding-bottom: 20px;
+    }
+    .crew-credits-content .crew-department {
+      margin-bottom: 0;
+    }
+    .crew-credits-content .crew-department-title {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.7rem; font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 28px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(200,169,110,0.1);
+    }
+    .crew-credits-content .crew-department-grid {
+      display: block;
+      text-align: center;
+    }
+    .crew-credits-content .crew-card {
+      background: none;
+      border: none;
+      padding: 3px 0;
+      border-radius: 0;
+      transition: none;
+      text-align: center;
+    }
+    .crew-credits-content .crew-card:hover {
+      background: none;
+      border: none;
+      transform: none;
+      box-shadow: none;
+    }
+    .crew-credits-content .crew-card .crew-name {
+      font-family: 'Lato', sans-serif;
+      font-size: 1rem; font-weight: 300;
+      color: var(--white);
+      line-height: 1.6;
+    }
+    .crew-credits-content .crew-card .crew-title {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.6rem; font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(200,169,110,0.45);
+      margin-top: 0;
+      line-height: 1;
+    }
+    .crew-credits-content .crew-song-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+      padding: 16px 0 40px;
+    }
+    .crew-credits-content .crew-song-list span {
+      padding: 4px 14px;
+      border: 1px solid rgba(200,169,110,0.1);
+      border-radius: 3px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(200,169,110,0.45);
+    }
+
+    /* Distributors */
+    #distributors {
+      position: relative; overflow:hidden;
+    }
+    #distributors .dist-bg-overlay {
+      position:absolute; inset:0; z-index:0; overflow:hidden;
+    }
+    #distributors .dist-bg-overlay img {
+      width:100%; height:100%; object-fit:cover;
+      opacity:0.05; filter:grayscale(1);
+    }
+    #distributors .dist-bg-overlay::after {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(90deg, rgba(26,19,16,0.97) 0%, rgba(26,19,16,0.7) 50%, rgba(26,19,16,0.97) 100%);
+    }
+    #distributors::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(200,169,110,0.04) 0%, transparent 70%);
+      pointer-events: none; z-index:0;
+    }
+
+    .dist-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 40px auto 0;
+      padding: 0 var(--side);
+      position: relative; z-index: 1;
+    }
+    .dist-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(200,169,110,0.08);
+      border-radius: 8px;
+      padding: 36px;
+      transition: all 0.4s;
+    }
+    .dist-card:hover {
+      border-color: rgba(200,169,110,0.2);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+    .dist-logo-wrap { margin-bottom:16px; }
+    .dist-logo-text {
+      font-family:var(--heading-font);
+      font-size:1.8rem; font-weight:700; line-height:1.1; color:var(--white); letter-spacing:.04em;
+      text-align:center;
+    }
+    .dist-logo-text .dist-logo-deco {
+      display:flex; align-items:center; justify-content:center; gap:12px;
+      margin-bottom:10px;
+    }
+    .dist-logo-text .dist-logo-deco .dash { flex:1; max-width:60px; height:1px; background:var(--gold); opacity:.4; }
+    .dist-logo-text .dist-logo-deco .star { color:var(--gold); font-size:.6rem; opacity:.5; }
+    .dist-logo-text em { font-style:normal; color:var(--gold); display:block; font-size:.55rem; letter-spacing:.35em; margin-top:6px; font-weight:400; font-family:'Lato',sans-serif; text-transform:uppercase; }
+    .dist-logo-f2m { color:var(--gold); }
+    .dist-logo-nile { color:var(--white); }
+    .dist-logo-sub {
+      font-family:'Lato',sans-serif;
+      font-size:.55rem; font-weight:300; letter-spacing:.15em;
+      color:rgba(252,249,245,.3); margin-top:8px;
+    }
+    .dist-card .dist-role {
+      font-size: 0.6rem; font-weight: 400;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 12px;
+    }
+    .dist-card p {
+      font-size: 0.85rem; font-weight: 300;
+      color: rgba(252,249,245,0.5); line-height: 1.7;
+    }
+
+    .dist-crew {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      max-width: 1200px;
+      margin: 30px auto 0;
+      padding: 0 var(--side);
+      position: relative; z-index: 1;
+    }
+    .dist-crew .crew-item {
+      padding: 20px;
+      background: rgba(255,255,255,0.01);
+      border: 1px solid rgba(200,169,110,0.05);
+      border-radius: 6px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .dist-crew .crew-item:hover {
+      border-color: rgba(200,169,110,0.15);
+      background: rgba(255,255,255,0.03);
+    }
+    .dist-crew .crew-item .crew-name {
+      font-size: 0.85rem; font-weight: 700;
+      color: var(--white);
+    }
+    .dist-crew .crew-item .crew-title {
+      font-size: 0.6rem; font-weight: 400;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(200,169,110,0.5);
+      margin-top: 4px;
+    }
+
+    #posters { background: transparent; overflow: hidden; }
+    .poster-grid {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 32px;
+      padding: 0 var(--side) 40px;
+      max-width: 1800px;
+      margin: 40px auto 0;
+      justify-content: center;
+    }
+    .poster-card { 
+      flex: 0 0 auto;
+      width: calc(25% - 24px);
+      min-width: 320px;
+      position:relative; overflow:hidden; border-radius:16px; aspect-ratio:2/3; cursor:pointer; 
+      box-shadow:0 12px 40px rgba(0,0,0,.4); transition:transform .5s cubic-bezier(.4,0,.2,1), box-shadow .5s;
+      border:3px solid rgba(200,169,110,.25);
+    }
+    .poster-card img { width:100%; height:100%; object-fit:cover; transition:transform .6s cubic-bezier(.4,0,.2,1); }
+    .poster-card:hover { transform:translateY(-10px) scale(1.02); box-shadow:0 30px 80px rgba(0,0,0,.6); }
+    .poster-card:hover img { transform:scale(1.08); }
+
+    @media (max-width: 1500px) {
+      .poster-grid { gap: 28px; }
+      .poster-card { min-width: 280px; }
+    }
+    @media (max-width: 1300px) {
+      .poster-grid { overflow-x: auto; justify-content: flex-start; padding: 0 var(--side) 40px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+      .poster-card { scroll-snap-align: start; min-width: 300px; }
+    }
+    @media (max-width: 480px) {
+      .poster-card { min-width: 260px; border-radius: 12px; }
+    }
+
+    /* Trailer - cinematic full-screen */
+    #trailer { position:relative; height:100vh; height:100dvh; overflow:hidden; background:#000; }
+    #trailer .trailer-bg { position:absolute; inset:0; z-index:0; }
+    #trailer .trailer-bg iframe,
+    #trailer .trailer-bg video {
+      width:100%; height:100%;
+      object-fit:cover; border-radius:0; box-shadow:none;
+      transform:scale(1.08);
+      transition:transform 0.3s ease;
+    }
+    #trailer .trailer-overlay {
+      position:absolute; inset:0; z-index:1;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.15) 40%,rgba(0,0,0,.15) 60%,rgba(0,0,0,.55) 100%);
+      text-align:center; padding:0 var(--side);
+    }
+    #trailer .trailer-overlay .section-label { justify-content:center; }
+    #trailer #unmuteBtn {
+      position:absolute; bottom:40px; right:40px; z-index:2;
+      padding:14px 28px; font-size:.75rem; font-weight:600;
+      background:rgba(0,0,0,.6); border:1px solid rgba(255,255,255,.2);
+      color:var(--cream); border-radius:4px; cursor:pointer;
+      transition:all .3s; font-family:'Lato',sans-serif; letter-spacing:.12em;
+      backdrop-filter:blur(8px);
+    }
+    #trailer #unmuteBtn:hover { border-color:var(--gold); color:var(--gold); background:rgba(200,169,110,.1); }
+
+    /* Media */
+    #more-videos {
+      background:linear-gradient(180deg, rgba(13,10,8,.96), rgba(26,19,16,.92));
+    }
+    #more-videos .section-inner {
+      max-width:1400px;
+    }
+    .media-grid {
+      display:grid; grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:28px; margin-top:42px;
+      max-width:1400px; margin-left:auto; margin-right:auto;
+    }
+    .media-card {
+      position:relative; overflow:hidden; border-radius:16px;
+      border:1px solid rgba(200,169,110,.15);
+      background:rgba(252,249,245,.03);
+      aspect-ratio:16/10;
+      box-shadow:0 12px 40px rgba(0,0,0,.3);
+      transition:transform .5s cubic-bezier(.4,0,.2,1), box-shadow .5s;
+    }
+    .media-card:hover {
+      transform:translateY(-6px) scale(1.01);
+      box-shadow:0 24px 60px rgba(0,0,0,.5);
+      border-color:rgba(200,169,110,.3);
+    }
+    .media-card video {
+      width:100%; height:100%;
+      display:block; object-fit:cover;
+      filter:saturate(.9) contrast(1.05);
+    }
+    .media-card__label {
+      position:absolute; left:20px; bottom:20px; z-index:2;
+      display:flex; flex-direction:column; gap:4px;
+      text-shadow:0 6px 20px rgba(0,0,0,.75);
+    }
+    .media-card__label span {
+      font-size:.6rem; font-weight:700; letter-spacing:.25em; text-transform:uppercase;
+      color:var(--gold);
+    }
+    .media-card__label strong {
+      font-family:var(--heading-font); font-size:1.2rem; color:var(--cream);
+    }
+    .media-card::after {
+      content:''; position:absolute; inset:0; pointer-events:none;
+      background:linear-gradient(180deg, transparent 30%, rgba(0,0,0,.8) 100%);
+      transition:opacity .5s;
+    }
+    .media-card:hover::after {
+      opacity:.85;
+    }
+
+    /* Release */
+    #release { text-align:center; position:relative; }
+    #release::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at center, rgba(200,169,110,.06) 0%, transparent 70%); pointer-events:none; }
+    .release-content { max-width:700px; margin:0 auto; padding:120px var(--side); position:relative; z-index:1; }
+    .release-date { font-size:clamp(3rem,7vw,5rem); font-weight:900; color:var(--gold); margin-top:16px; letter-spacing:-.02em; }
+    .release-date small { font-size:.3em; display:block; font-weight:300; color:rgba(252,249,245,.35); letter-spacing:.2em; text-transform:uppercase; margin-top:8px; }
+    .release-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin-top:56px; }
+    .release-grid .item { padding:24px; }
+    .release-grid .item .icon { font-size:1.8rem; margin-bottom:12px; }
+    .release-grid .item h4 { font-family:var(--heading-font); font-size:.9rem; font-weight:700; color:var(--cream); margin-bottom:4px; }
+    .release-grid .item p { font-size:.75rem; font-weight:300; color:rgba(252,249,245,.4); line-height:1.5; }
+
+    #newsletter { text-align:center; }
+    #newsletter .nl-form { display:flex; gap:12px; max-width:460px; margin:32px auto 0; justify-content:center; flex-wrap:wrap; }
+    #newsletter input {
+      flex:1; min-width:200px; padding:14px 18px;
+      background:rgba(252,249,245,.04); border:1px solid rgba(252,249,245,.1);
+      color:var(--cream); font-size:.85rem; font-weight:300; outline:none;
+      transition:all .3s; font-family:'Lato',sans-serif;
+    }
+    #newsletter input:focus { border-color:var(--gold); background:rgba(200,169,110,.04); }
+    #newsletter input::placeholder { color:rgba(252,249,245,.2); font-weight:300; }
+
+    footer { position:relative; overflow:hidden; }
+    footer .footer-bg { position:absolute; inset:0; z-index:0; }
+    footer .footer-bg::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(13,10,8,.97) 0%,rgba(13,10,8,.92) 100%); z-index:1; }
+    footer .footer-bg img { width:100%; height:100%; object-fit:cover; }
+    .footer-content { position:relative; z-index:2; padding:80px var(--side) 30px; }
+    .footer-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px; }
+    .footer-brand .logo { font-size:1.1rem; }
+    .footer-brand p { font-size:.8rem; font-weight:300; color:rgba(252,249,245,.35); margin-top:12px; line-height:1.8; }
+    .footer-col h4 { font-family:var(--heading-font); font-size:.55rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--gold); margin-bottom:16px; }
+    .footer-col a { display:block; font-size:.8rem; font-weight:300; color:rgba(252,249,245,.4); margin-bottom:10px; transition:all .3s; }
+    .footer-col a:hover { color:var(--gold); padding-left:4px; }
+    .footer-bottom { max-width:1200px; margin:40px auto 0; padding-top:24px; border-top:1px solid rgba(200,169,110,.08); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+    .footer-bottom p { font-size:.65rem; font-weight:300; color:rgba(252,249,245,.2); }
+    .footer-socials { display:flex; gap:12px; }
+    .footer-socials a { width:38px; height:38px; border:1px solid rgba(252,249,245,.1); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.7rem; font-weight:700; color:rgba(252,249,245,.3); transition:all .4s; }
+    .footer-socials a:hover { border-color:var(--gold); color:var(--gold); transform:translateY(-3px); box-shadow:0 6px 20px rgba(200,169,110,.15); }
+
+    .reveal { opacity:0; transform:translateY(50px); transition:all .8s cubic-bezier(.4,0,.2,1); }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    .reveal-scale { opacity:0; transform:scale(.9); transition:all .8s cubic-bezier(.4,0,.2,1); }
+    .reveal-scale.visible { opacity:1; transform:scale(1); }
+    .reveal-left { opacity:0; transform:translateX(-60px); transition:all .8s cubic-bezier(.4,0,.2,1); }
+    .reveal-left.visible { opacity:1; transform:translateX(0); }
+    .reveal-right { opacity:0; transform:translateX(60px); transition:all .8s cubic-bezier(.4,0,.2,1); }
+    .reveal-right.visible { opacity:1; transform:translateX(0); }
+
+    /* IL CAPO-inspired scroll text reveal */
+    .scr {
+      position:relative; display:inline-block; overflow:hidden; vertical-align:bottom;
+      padding:0.1em 0; margin:-0.1em 0;
+    }
+    .scr > span { display:block; transform:translateY(100%); transition:transform .8s cubic-bezier(.4,0,.2,1); }
+    .scr.revealed > span { transform:translateY(0); }
+    .scr.d1 > span { transition-delay:.1s; }
+    .scr.d2 > span { transition-delay:.2s; }
+    .scr.d3 > span { transition-delay:.3s; }
+    .scr.d4 > span { transition-delay:.4s; }
+    .scr.d5 > span { transition-delay:.5s; }
+    .scr.d6 > span { transition-delay:.6s; }
+    .delay-1 { transition-delay:.1s; }
+    .delay-2 { transition-delay:.2s; }
+    .delay-3 { transition-delay:.3s; }
+    .delay-4 { transition-delay:.4s; }
+    .delay-5 { transition-delay:.5s; }
+    .delay-6 { transition-delay:.6s; }
+    .delay-7 { transition-delay:.7s; }
+    .delay-8 { transition-delay:.8s; }
+
+    #progress-bar { position:fixed; top:0; left:0; width:0%; height:2px; background:linear-gradient(90deg,var(--gold),var(--gold-light)); z-index:1001; transition:width .1s linear; }
+    .cursor-glow { position:fixed; width:300px; height:300px; border-radius:50%; background:radial-gradient(circle,rgba(200,169,110,.04) 0%,transparent 70%); pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:opacity .3s; mix-blend-mode:screen; }
+    @media (max-width:768px) { .cursor-glow { display:none; } }
+
+    #scrollTop {
+      position:fixed; bottom:30px; right:30px; z-index:999; width:48px; height:48px;
+      border-radius:50%; border:1px solid rgba(200,169,110,.2); background:rgba(13,10,8,.85);
+      backdrop-filter:blur(10px); color:var(--gold); font-size:1.2rem; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      opacity:0; visibility:hidden; transition:all .4s; pointer-events:none;
+    }
+    #scrollTop.visible { opacity:1; visibility:visible; pointer-events:auto; }
+    #scrollTop:hover { border-color:var(--gold); transform:translateY(-3px); box-shadow:0 6px 20px rgba(200,169,110,.15); }
+    @media (max-width:480px) { #scrollTop { bottom:16px; right:16px; width:40px; height:40px; font-size:1rem; } }
+
+    /* === IDYLLIC-INSPIRED SCROLL AESTHETICS === */
+
+    /* Marquee */
+    .marquee-section { width:100%; overflow:hidden; position:relative; z-index:2; padding:16px 0; border-top:1px solid rgba(200,169,110,.06); border-bottom:1px solid rgba(200,169,110,.06); }
+    .marquee-track { display:flex; white-space:nowrap; will-change:transform; animation:marqueeScroll 50s linear infinite; }
+    .marquee-track span { padding:0 48px; font-size:.65rem; font-weight:300; letter-spacing:.18em; text-transform:uppercase; color:rgba(200,169,110,.35); flex-shrink:0; }
+    .marquee-track span em { font-style:normal; color:var(--gold); font-weight:700; }
+    @keyframes marqueeScroll { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
+
+    /* Reveal line divider */
+    /* Watermark */
+    .watermark {
+      display:inline-flex; align-items:center; gap:6px;
+      opacity:.5; transition:opacity .3s;
+    }
+    .watermark:hover { opacity:1; }
+    .watermark img { height:12px; width:auto; opacity:.6; }
+    .watermark span { font-size:.45rem; color:rgba(200,169,110,.4); letter-spacing:.06em; font-weight:300; }
+    .watermark .dev-tag { color:rgba(200,169,110,.25); font-size:.4rem; letter-spacing:.02em; }
+    .reveal-line__inner { width:0%; height:100%; background:linear-gradient(90deg,transparent,var(--gold),transparent); transition:width 1.4s cubic-bezier(.4,0,.2,1); }
+    .reveal-line.visible .reveal-line__inner { width:100%; }
+
+    /* Story */
+    #story { position:relative; overflow:hidden; }
+    #story .story-bg { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; }
+    #story .story-bg::after {
+      content:''; position:absolute; inset:0; z-index:1;
+      background:linear-gradient(135deg,rgba(13,10,8,.92) 0%,rgba(13,10,8,.35) 40%,rgba(13,10,8,.8) 100%),
+        radial-gradient(ellipse at 30% 50%, rgba(200,169,110,.08) 0%, transparent 70%);
+    }
+    #story .story-bg img { width:100%; height:100%; object-fit:cover; }
+    .story-cards { position:relative; z-index:1; }
+    .story-card { padding:100px var(--side); }
+    .story-card__inner {
+      max-width:900px; margin:0 auto; width:100%;
+      display:grid; grid-template-columns:80px 1fr; gap:36px; align-items:start;
+    }
+    .story-card__num {
+      font-size:clamp(3rem,7vw,5rem); font-weight:100; line-height:1;
+      color:var(--gold); opacity:.25; letter-spacing:-.03em;
+    }
+    .story-card__content { padding-top:8px; }
+    .story-card__content .card-label {
+      font-size:.55rem; font-weight:400; letter-spacing:.25em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:8px; display:block;
+    }
+    .story-card__content h3 {
+      font-family:var(--heading-font); font-size:clamp(1.4rem,3vw,2.2rem); font-weight:700; color:var(--white); line-height:1.2; margin-bottom:20px;
+    }
+    .story-card__content h3 em { font-style:normal; color:var(--gold); font-weight:100; }
+    .story-card__content p {
+      font-size:clamp(.9rem,1.3vw,1.05rem); font-weight:300;
+      color:rgba(252,249,245,.65); line-height:2;
+    }
+    .story-card__content p + p { margin-top:16px; }
+    .story-card__quote {
+      font-weight:300; font-style:italic; font-size:clamp(1.1rem,2vw,1.5rem);
+      color:var(--gold-light); border-left:2px solid var(--gold); padding-left:28px;
+      margin-top:32px; max-width:600px;
+    }
+
+    /* Animated counter */
+    .counter-value { display:inline-block; }
+
+    /* Scroll color shift wrapper */
+    .scroll-colors { transition:background .8s ease; }
+
+    .section-header {
+      padding:100px var(--side); max-width:1200px; margin:0 auto; position:relative; z-index:1;
+    }
+
+    @media (max-width:1100px) {
+      #cast { height: auto; min-height: 100vh; min-height: 100dvh; }
+      .cast-profile { width: 400px; }
+      .cast-avatar { width: 360px; height: 360px; }
+    }
+    @media (max-width:900px) {
+      .cast-profile { width: 340px; }
+      .cast-avatar { width: 300px; height: 300px; }
+      .cast-grid { gap: 60px; }
+      .media-grid { grid-template-columns:1fr; max-width:700px; gap:24px; }
+      .media-card { aspect-ratio:16/9; }
+      .stats-row { grid-template-columns:repeat(2,1fr); }
+      .dist-grid { grid-template-columns:1fr; }
+      .story-card__inner { grid-template-columns:1fr; gap:16px; }
+      .story-card__num { font-size:clamp(2rem,5vw,3rem); }
+      .dist-logo-text { font-size:1.4rem; }
+    }
+    @media (max-width:768px) {
+      nav.desktop-nav { display:none; }
+      .hamburger { display:flex; }
+      #cast { height: auto; min-height: 80vh; }
+      .cast-profile { width: 280px; }
+      .cast-avatar { width: 240px; height: 240px; }
+      .cast-grid { gap: 40px; }
+      .cast-info .cast-name { font-size:1.1rem; }
+      .cast-header { margin-bottom: 32px; }
+      .footer-grid { grid-template-columns:1fr 1fr; }
+      .release-grid { grid-template-columns:1fr; }
+      .stats-row { transform:translateY(0); }
+      .section-inner { padding:60px var(--side); }
+      .story-card { padding:80px var(--side); }
+      .story-card__content h3 { font-size:1.3rem; }
+      #unmuteBtn { bottom:16px !important; right:16px !important; padding:8px 16px !important; font-size:.6rem !important; }
+      .hero-title { max-width:500px; }
+      .hero-title img { width:100%; }
+      .hero-content { padding: 0 20px; text-align: center; }
+      .hero-actions { justify-content: center; }
+      .hero-badge { margin-bottom: 16px; }
+      .hero-tagline { margin: 20px auto 0; }
+    }
+    @media (max-width:480px) {
+      .footer-grid { grid-template-columns:1fr; }
+      #cast { height: auto; min-height: auto; }
+      .cast-profile { width: 190px; }
+      .cast-avatar { width: 160px; height: 160px; border-width: 4px; }
+      .cast-grid { gap: 20px; }
+      .cast-info .cast-name { font-size:1rem; }
+      .cast-info .cast-role { font-size:.6rem; }
+      .hero-badge { font-size:.5rem; padding:4px 12px; }
+      .hero-actions { flex-direction:column; align-items:center; gap:12px; }
+      .hero-actions .btn { width:100%; justify-content:center; min-height:48px; }
+      .stats-row { grid-template-columns: 1fr; transform: none; }
+      .stat-item { padding:20px 12px; }
+      .stat-item .num { font-size:1.6rem; }
+      .release-date { font-size:clamp(2rem,6vw,3rem); }
+      .dist-card { padding:20px 14px; }
+      .story-card__inner { gap:12px; }
+      .story-card { padding:60px var(--side); }
+      .marquee-track span { font-size:.5rem; padding:0 24px; }
+      .vid-grid { grid-template-columns:1fr; }
+      .logo-link { width: 60px; height: auto; transform: translate(-6px, -3px); }
+      header { --nav-height: 60px; padding: 0 var(--side); }
+      .hero-scroll { bottom:18px; }
+      .section-inner { padding: 48px 16px; }
+      .hero-title { max-width:320px; }
+      .hero-title img { width:100%; }
+      .hero-sub { font-size: 1rem; }
+      .hero-tagline { font-size: 0.8rem; }
+      .btn { min-height:44px; }
+      .media-card { aspect-ratio:16/9; }
+      .media-grid { gap:12px; }
+      .footer-content { padding:60px var(--side) 20px; }
+      .footer-bottom { flex-direction:column; text-align:center; gap:12px; }
+      .section-title { font-size:clamp(1.6rem,6vw,2rem); }
+      .mobile-menu .ml { font-size:1rem; padding:10px 0; }
+      .mobile-menu__aside { padding-bottom:40px; }
+      .mobile-menu__aside img { width:100px; }
+      .mobile-menu__eyebrow { font-size:.5rem; }
+      .mobile-menu__release strong { font-size:1rem; }
+      .fairy-particle {
+        position:fixed; pointer-events:none; z-index:10000;
+        width:6px; height:6px; border-radius:50%;
+        background:var(--gold); box-shadow:0 0 8px var(--gold-light),0 0 16px var(--gold);
+        animation:fairyBurst .8s ease-out forwards;
+      }
+      @keyframes fairyBurst {
+        0% { opacity:1; transform:translate(0,0) scale(1); }
+        100% { opacity:0; transform:translate(var(--tx),var(--ty)) scale(0); }
+      }
+    }
+
+    /* Scroll glow */
+    .scroll-glow {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none; z-index: -1;
+      background: radial-gradient(ellipse at 50% 0%, rgba(200,169,110,0.06) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    /* === POSTER LIGHTBOX === */
+    .poster-lightbox {
+      position: fixed; inset: 0; z-index: 10000;
+      background: rgba(0,0,0,.92);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden;
+      transition: opacity .4s, visibility .4s;
+      backdrop-filter: blur(8px);
+    }
+    .poster-lightbox.active { opacity: 1; visibility: visible; }
+    .poster-lightbox img {
+      max-width: 90vw; max-height: 90vh;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.6);
+      object-fit: contain;
+    }
+    .poster-lightbox .lb-close {
+      position: absolute; top: 20px; right: 30px;
+      color: #fff; font-size: 2rem; cursor: pointer;
+      width: 48px; height: 48px; display: flex;
+      align-items: center; justify-content: center;
+      border-radius: 50%; background: rgba(255,255,255,.1);
+      transition: background .3s; border: none;
+      z-index: 10;
+    }
+    .poster-lightbox .lb-close:hover { background: rgba(255,255,255,.2); }
+    .poster-lightbox .lb-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      color: #fff; font-size: 2.5rem; cursor: pointer;
+      width: 56px; height: 56px; display: flex;
+      align-items: center; justify-content: center;
+      border-radius: 50%; background: rgba(255,255,255,.1);
+      transition: background .3s; border: none;
+      z-index: 10; user-select: none;
+    }
+    .poster-lightbox .lb-arrow:hover { background: rgba(255,255,255,.2); }
+    .poster-lightbox .lb-prev { left: 20px; }
+    .poster-lightbox .lb-next { right: 20px; }
+    .poster-lightbox .lb-counter {
+      position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+      color: rgba(255,255,255,.5); font-family: var(--font-sans); font-size: .9rem;
+      letter-spacing: .15em;
+    }
+    @media (max-width: 768px) {
+      .poster-lightbox .lb-arrow { width: 44px; height: 44px; font-size: 1.8rem; }
+      .poster-lightbox .lb-prev { left: 10px; }
+      .poster-lightbox .lb-next { right: 10px; }
+      .poster-lightbox .lb-close { top: 10px; right: 15px; width: 40px; height: 40px; font-size: 1.5rem; }
+    }
+
+
+  </style>
+</head>
+<body>
+
+<div id="page-bg-video">
+  <video id="bgVideo" autoplay muted playsinline loop poster="Remi-&-Nneoma-Poster-1.jpg" fetchpriority="high">
+    <source src="HERO VIDEOS/TRAIILER 1.mp4" type="video/mp4" />
+  </video>
+</div>
+
+<video id="siteSound" playsinline preload="auto" loop muted aria-hidden="true" tabindex="-1"></video>
+
+<div id="progress-bar"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+<button id="scrollTop" aria-label="Scroll to top">&#8593;</button>
+
+<div id="loader"><img src="splashscreen logo.png" alt="REMI &amp; NNEOMA" class="splash-logo" /><div class="loading-text">LOADING.......</div></div>
+<div id="splash-flash"></div>
+
+<header id="header">
+  <a href="#" class="logo-link"><img src="logo.png" alt="REMI &amp; NNEOMA" /></a>
+  <nav class="desktop-nav">
+    <a href="#story">Story</a><a href="#cast">Cast</a><a href="#crew">Crew</a>
+    <a href="#distributors">Distributors</a><a href="#posters">Posters</a>
+    <a href="#trailer">Trailer</a><a href="#more-videos">Media</a><a href="#release">Release</a>
+  </nav>
+  <div class="nav-actions">
+    <a href="https://filmx-event.reachcinema.io/film/e5e4b04a-6e09-44f3-bbfb-4df13d44710b" class="nav-cta">Get Tickets</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu__links">
+    <div class="mobile-menu__eyebrow">Menu</div>
+    <a href="#story" class="ml">Story</a>
+    <a href="#cast" class="ml">Cast</a>
+    <a href="#crew" class="ml">Crew</a>
+    <a href="#distributors" class="ml">Distributors</a>
+    <a href="#posters" class="ml">Posters</a>
+    <a href="#trailer" class="ml">Trailer</a>
+    <a href="#more-videos" class="ml">Media</a>
+    <a href="#release" class="ml">Release</a>
+    <a href="#newsletter" class="ml">Connect</a>
+  </div>
+  <aside class="mobile-menu__aside" aria-label="Release details">
+    <img src="logo.png" alt="REMI &amp; NNEOMA" />
+    <div>
+      <div class="mobile-menu__aside-label">Now This Is Nollywood</div>
+      <p>A Five 2 Media Entertainment production in association with Nile Entertainment.</p>
+    </div>
+    <div class="mobile-menu__release">
+      <strong>June 26, 2026</strong>
+      <span>Nationwide cinema release</span>
+    </div>
+  </aside>
+  <a href="https://filmx-event.reachcinema.io/film/e5e4b04a-6e09-44f3-bbfb-4df13d44710b" class="btn btn-primary mobile-menu__cta">Get Tickets</a>
+</div>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-particle" id="particles"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Five2 Entertainment and Media Ltd.</div>
+    <div class="hero-title">
+      <img src="REMI &.png" alt="REMI &amp;" />
+      <img src="NNEOMA.png" alt="NNEOMA" />
+    </div>
+    <p class="hero-sub">A story of love, loss, and the bonds that heal</p>
+    <p class="hero-tagline">
+      Inspired by the timeless story of Ruth and Naomi, two women bound by grief
+      discover the quiet strength of faith, family, and the courage to love again.
+    </p>
+    <div class="hero-actions">
+      <a href="#trailer" class="btn btn-primary">&#9654; Watch Trailer</a>
+      <a href="#release" class="btn btn-outline">Release Details</a>
+    </div>
+  </div>
+</section>
+
+<section id="story">
+  <div class="story-bg" id="storyBg">
+    <img src="Remi-&-Nneoma-Poster-Bisola-&-Ifeayi.jpg" alt="" loading="lazy" />
+  </div>
+  <div class="story-cards">
+    <div class="story-card">
+      <div class="story-card__inner">
+        <div class="story-card__num">01</div>
+        <div class="story-card__content">
+          <span class="card-label">The Return</span>
+          <h3>A Bold <em>Return</em> to Cinema</h3>
+          <p><strong>Remi X Nneoma</strong> marks the powerful return of Five 2 Media Entertainment to the Nigerian film industry. A fresh and intimate drama inspired by the timeless biblical tale of Ruth and Naomi, the film explores love, grief, and the quiet resilience of the human spirit.</p>
+        </div>
+      </div>
+    </div>
+    <div class="story-card">
+      <div class="story-card__inner">
+        <div class="story-card__num">02</div>
+        <div class="story-card__content">
+          <span class="card-label">The Bond</span>
+          <h3>Bound by <em>Tragedy</em>, Held by <em>Love</em></h3>
+          <p>The story follows the Amadi women, bound by shared tragedy. After the sudden loss of their beloved husband and father, Nneoma chooses to remain in Ikwerre, anchored to her roots and community. Her daughter-in-law Remi defies societal expectations and refuses to abandon her. Together, they navigate widowhood, cultural pressures, and the fragile path toward hope.</p>
+        </div>
+      </div>
+    </div>
+    <div class="story-card">
+      <div class="story-card__inner">
+        <div class="story-card__num">03</div>
+        <div class="story-card__content">
+          <span class="card-label">The Healing</span>
+          <h3>A <em>New Dawn</em> After Heartbreak</h3>
+          <p>In the stillness after heartbreak, Remi finds herself unexpectedly drawn toward a new love — opening a door for both women to rediscover joy and begin the long journey toward healing.</p>
+          <div class="story-card__quote">"A reflection on the quiet strength required to face life after tragedy — and the everyday resilience that defines so many women's experiences."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span>REMI <em>&amp;</em> NNEOMA — IN CINEMAS JUNE 26, 2026 — A FIVE 2 MEDIA ENTERTAINMENT PRODUCTION — IN ASSOCIATION WITH NILE ENTERTAINMENT — DIRECTED BY LYNDSEY EFEJUKU —</span>
+    <span>REMI <em>&amp;</em> NNEOMA — IN CINEMAS JUNE 26, 2026 — A FIVE 2 MEDIA ENTERTAINMENT PRODUCTION — IN ASSOCIATION WITH NILE ENTERTAINMENT — DIRECTED BY LYNDSEY EFEJUKU —</span>
+  </div>
+</div>
+
+
+
+<div class="reveal-line"><div class="reveal-line__inner"></div></div>
+
+<section id="cast">
+  <div class="cast-bg-overlay">
+    <img src="Remi-&-Nneoma-Poster-1.jpg" alt="" loading="lazy" />
+  </div>
+  <div class="cast-inner">
+    <div class="cast-header">
+      <div class="section-label reveal">
+        <span class="line"></span><span>The Cast</span>
+      </div>
+      <h2 class="section-title">
+        <span class="scr d1"><span>Starring an <em>Extraordinary</em> Ensemble</span></span>
+      </h2>
+    </div>
+
+    <div class="cast-grid">
+
+      <div class="cast-profile">
+        <div class="cast-avatar"><img src="CASTS/BISOLA AIYEOLA.jpg" alt="Bisola Aiyeola" loading="lazy" /></div>
+        <div class="cast-info">
+          <div class="cast-name">Bisola <em>Aiyeola</em></div>
+          <div class="cast-role">as REMI</div>
+        </div>
+      </div>
+
+      <div class="cast-profile">
+        <div class="cast-avatar"><img src="CASTS/LIZ BENSON AMEYE.jpg" alt="Liz Benson-Ameye" loading="lazy" /></div>
+        <div class="cast-info">
+          <div class="cast-name">Liz <em>Benson-Ameye</em></div>
+          <div class="cast-role">as NNEOMA</div>
+        </div>
+      </div>
+
+      <div class="cast-profile">
+        <div class="cast-avatar"><img src="CASTS/EUCHARIA ANUNOBI.jpg" alt="Eucharia Anunobi" loading="lazy" /></div>
+        <div class="cast-info">
+          <div class="cast-name">Eucharia <em>Anunobi</em></div>
+          <div class="cast-role">as CHETACHI</div>
+        </div>
+      </div>
+
+      <div class="cast-profile">
+        <div class="cast-avatar"><img src="CASTS/IFEANYI KALU.jpg" alt="Ifeanyi Kalu" loading="lazy" /></div>
+        <div class="cast-info">
+          <div class="cast-name">Ifeanyi <em>Kalu</em></div>
+          <div class="cast-role">as OVUNDAH</div>
+        </div>
+      </div>
+
+      <div class="cast-profile">
+        <div class="cast-avatar"><img src="CASTS/UCHE MONTANA.jpg" alt="Uche Montana" loading="lazy" /></div>
+        <div class="cast-info">
+          <div class="cast-name">Uche <em>Montana</em></div>
+          <div class="cast-role">as OMA</div>
+        </div>
+      </div>
+
+      <div class="cast-profile">
+        <div class="cast-avatar"><img src="CASTS/BIKIYA GRAHAM DOUGLAS.jpg" alt="Bikiya Graham-Douglas" loading="lazy" /></div>
+        <div class="cast-info">
+          <div class="cast-name">Bikiya <em>Graham-Douglas</em></div>
+          <div class="cast-role">as HACHIKARU</div>
+        </div>
+      </div>
+
+      <div class="cast-profile">
+        <div class="cast-avatar"><img src="CASTS/KELECHI UDEGBE.jpg" alt="Kelechi Udegbe" loading="lazy" /></div>
+        <div class="cast-info">
+          <div class="cast-name">Kelechi <em>Udegbe</em></div>
+          <div class="cast-role">as NYESOM</div>
+        </div>
+      </div>
+
+      <div class="cast-profile">
+        <div class="cast-avatar"><img src="CASTS/TINA MBA.jpg" alt="Tina Mba" loading="lazy" /></div>
+        <div class="cast-info">
+          <div class="cast-name">Tina <em>Mba</em></div>
+          <div class="cast-role">as ARIYIKE</div>
+        </div>
+      </div>
+
+      <div class="cast-profile">
+        <div class="cast-avatar"><img src="CASTS/MARTHA EHINOME.jpg" alt="Martha Ehinome" loading="lazy" /></div>
+        <div class="cast-info">
+          <div class="cast-name">Martha <em>Ehinome</em></div>
+          <div class="cast-role">as OPRAH</div>
+        </div>
+      </div>
+
+      <div class="cast-profile">
+        <div class="cast-avatar"><img src="CASTS/BUCCI FRANKLIN.jpg" alt="Bucci Franklin" loading="lazy" /></div>
+        <div class="cast-info">
+          <div class="cast-name">Bucci <em>Franklin</em></div>
+          <div class="cast-role">as AMEACHI</div>
+        </div>
+      </div>
+
+      <div class="cast-profile">
+        <div class="cast-avatar"><img src="CASTS/ODUNDA IHUNWO.jpg" alt="Ovunda Ihuwon" loading="lazy" /></div>
+        <div class="cast-info">
+          <div class="cast-name">Ovunda <em>Ihuwon</em></div>
+          <div class="cast-role">as MR. BROWN</div>
+        </div>
+      </div>
+
+      <div class="cast-profile">
+        <div class="cast-avatar"><img src="CASTS/KUNLE COKER.jpg" alt="Kunle Coker" loading="lazy" /></div>
+        <div class="cast-info">
+          <div class="cast-name">Kunle <em>Coker</em></div>
+          <div class="cast-role">as TUNDE</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="reveal-line"><div class="reveal-line__inner"></div></div>
+
+<section id="crew">
+  <div class="crew-bg-overlay">
+    <img src="Remi-&-Nneoma-Poster-1.jpg" alt="" loading="lazy" />
+  </div>
+  <div class="crew-credits-viewport">
+    <div class="crew-credits-content">
+
+      <div class="crew-header">
+        <div class="section-label">
+          <span class="line"></span><span>The Crew</span>
+        </div>
+        <h2 class="section-title">
+          <span class="scr d1"><span>Meet the <em>Filmmakers</em></span></span>
+        </h2>
+      </div>
+
+      <div class="crew-department">
+        <div class="crew-department-title">Production</div>
+        <div class="crew-department-grid">
+          <div class="crew-card"><div class="crew-name">Bikiya Graham-Douglas</div><div class="crew-title">Producer</div></div>
+          <div class="crew-card"><div class="crew-name">Solate Ovundah-Akarolo</div><div class="crew-title">Executive Producer</div></div>
+          <div class="crew-card"><div class="crew-name">Lyndsey Efejuku</div><div class="crew-title">Director</div></div>
+          <div class="crew-card"><div class="crew-name">Priye Diri</div><div class="crew-title">Writer</div></div>
+          <div class="crew-card"><div class="crew-name">Adelarin Awotedu</div><div class="crew-title">Writer</div></div>
+          <div class="crew-card"><div class="crew-name">Taiwo Adeleye</div><div class="crew-title">Line Producer</div></div>
+          <div class="crew-card"><div class="crew-name">Suleimon Adesanya Olaoluwa</div><div class="crew-title">Unit Production Manager (Lagos)</div></div>
+          <div class="crew-card"><div class="crew-name">Sidiku Kabiru Adekunle</div><div class="crew-title">Unit Production Manager (Abuja)</div></div>
+          <div class="crew-card"><div class="crew-name">Oluwatoyin Ojo Isreal</div><div class="crew-title">1st Assistant Director</div></div>
+          <div class="crew-card"><div class="crew-name">Anagha Friday</div><div class="crew-title">2nd Assistant Director (Lagos)</div></div>
+          <div class="crew-card"><div class="crew-name">Silas Abada</div><div class="crew-title">Script Supervisor (Abuja)</div></div>
+          <div class="crew-card"><div class="crew-name">UEC Flicks</div><div class="crew-title">Script Supervisor (Lagos)</div></div>
+        </div>
+      </div>
+
+      <div class="crew-department">
+        <div class="crew-department-title">Camera</div>
+        <div class="crew-department-grid">
+          <div class="crew-card"><div class="crew-name">Oreoluwa Isreal Olanipekun</div><div class="crew-title">Camera Operator A</div></div>
+          <div class="crew-card"><div class="crew-name">Ahmed Idris Oladapo</div><div class="crew-title">1st AC / Focus Puller</div></div>
+          <div class="crew-card"><div class="crew-name">Diri Jeremiah</div><div class="crew-title">2nd AC / Clapper</div></div>
+          <div class="crew-card"><div class="crew-name">Oluwaremilekun J. Macaulay</div><div class="crew-title">Camera Operator B</div></div>
+          <div class="crew-card"><div class="crew-name">Adeniyi Oluwatosin</div><div class="crew-title">1st AC (Cam B)</div></div>
+          <div class="crew-card"><div class="crew-name">Micheal Ehihon</div><div class="crew-title">Drone Operator</div></div>
+          <div class="crew-card"><div class="crew-name">Lateef Adeniji</div><div class="crew-title">Data Wrangler</div></div>
+          <div class="crew-card"><div class="crew-name">Olayemi Habeeb</div><div class="crew-title">Behind the Scenes</div></div>
+          <div class="crew-card"><div class="crew-name">Adetoye O. Olayemi</div><div class="crew-title">Behind the Scenes</div></div>
+        </div>
+      </div>
+
+      <div class="crew-department">
+        <div class="crew-department-title">Sound</div>
+        <div class="crew-department-grid">
+          <div class="crew-card"><div class="crew-name">Mustapha Oluwafemi (Sway)</div><div class="crew-title">Production Sound Mixer</div></div>
+          <div class="crew-card"><div class="crew-name">Olayinka Segun (Oliver)</div><div class="crew-title">Assistant Sound Mixer</div></div>
+          <div class="crew-card"><div class="crew-name">Dada O. Olorunjuedalo</div><div class="crew-title">Boom Operator</div></div>
+        </div>
+      </div>
+
+      <div class="crew-department">
+        <div class="crew-department-title">Grip &amp; Lighting</div>
+        <div class="crew-department-grid">
+          <div class="crew-card"><div class="crew-name">Oluwaseyi Adeyemi</div><div class="crew-title">Key Grip</div></div>
+          <div class="crew-card"><div class="crew-name">Adegboyega Olajide</div><div class="crew-title">Best Boy (Grip)</div></div>
+          <div class="crew-card"><div class="crew-name">Dorcas Maradesa</div><div class="crew-title">Grip Assistant</div></div>
+          <div class="crew-card"><div class="crew-name">Lipede Lateef Opeyemi</div><div class="crew-title">Gaffer</div></div>
+          <div class="crew-card"><div class="crew-name">Isang Osang David</div><div class="crew-title">Best Boy (Lighting)</div></div>
+          <div class="crew-card"><div class="crew-name">Adewara John Oluwafemi</div><div class="crew-title">Lighting Assistant</div></div>
+          <div class="crew-card"><div class="crew-name">Akinmoladun Olakunle</div><div class="crew-title">Lighting Assistant</div></div>
+        </div>
+      </div>
+
+      <div class="crew-department">
+        <div class="crew-department-title">Art Department</div>
+        <div class="crew-department-grid">
+          <div class="crew-card"><div class="crew-name">Shobiye Babatunde David</div><div class="crew-title">Production Designer / Art Director</div></div>
+          <div class="crew-card"><div class="crew-name">Nathaniel Olajuwon</div><div class="crew-title">Set Design Assistant</div></div>
+          <div class="crew-card"><div class="crew-name">Joshua Ikyanger</div><div class="crew-title">Props Manager</div></div>
+          <div class="crew-card"><div class="crew-name">Pever Harrison</div><div class="crew-title">Props Manager</div></div>
+        </div>
+      </div>
+
+      <div class="crew-department">
+        <div class="crew-department-title">Costume &amp; Makeup</div>
+        <div class="crew-department-grid">
+          <div class="crew-card"><div class="crew-name">Bosede Adeyemi-Olufowobi</div><div class="crew-title">Costume Designer (Lagos)</div></div>
+          <div class="crew-card"><div class="crew-name">Pever Mimi</div><div class="crew-title">Costume Designer (Abuja)</div></div>
+          <div class="crew-card"><div class="crew-name">GO CREATIONZ</div><div class="crew-title">Costume Assistant</div></div>
+          <div class="crew-card"><div class="crew-name">Ayuba Obadiah</div><div class="crew-title">Makeup Artist / Hair Stylist</div></div>
+          <div class="crew-card"><div class="crew-name">Osasogie Efe Guobadia</div><div class="crew-title">Assistant Makeup &amp; Hair</div></div>
+          <div class="crew-card"><div class="crew-name">Angela Ovanero Ayinde</div><div class="crew-title">SFX Makeup</div></div>
+          <div class="crew-card"><div class="crew-name">Olabimpe Abiodun Cole</div><div class="crew-title">SFX Makeup</div></div>
+          <div class="crew-card"><div class="crew-name">Franca Dingbo</div><div class="crew-title">SFX Makeup</div></div>
+        </div>
+      </div>
+
+      <div class="crew-department">
+        <div class="crew-department-title">Production Support</div>
+        <div class="crew-department-grid">
+          <div class="crew-card"><div class="crew-name">Awoleke Racheal</div><div class="crew-title">Production Coordinator</div></div>
+          <div class="crew-card"><div class="crew-name">Jude Chukwuma Odoh</div><div class="crew-title">Production Assistant</div></div>
+          <div class="crew-card"><div class="crew-name">Aloba Iyore Mayowa</div><div class="crew-title">Production Assistant</div></div>
+          <div class="crew-card"><div class="crew-name">Ismaila Adaba Musa</div><div class="crew-title">Production Assistant</div></div>
+          <div class="crew-card"><div class="crew-name">AdeTuTu Adeola</div><div class="crew-title">Cast Chaperone</div></div>
+          <div class="crew-card"><div class="crew-name">Mercy Msurshima Chia</div><div class="crew-title">BTS Content</div></div>
+          <div class="crew-card"><div class="crew-name">Ernest Nengi</div><div class="crew-title">BTS Content</div></div>
+        </div>
+      </div>
+
+      <div class="crew-department">
+        <div class="crew-department-title">Locations &amp; Transport</div>
+        <div class="crew-department-grid">
+          <div class="crew-card"><div class="crew-name">Oprah Onyeador</div><div class="crew-title">Location Manager</div></div>
+          <div class="crew-card"><div class="crew-name">Alfred Smith</div><div class="crew-title">Driver</div></div>
+          <div class="crew-card"><div class="crew-name">Romanus Opara</div><div class="crew-title">Driver</div></div>
+          <div class="crew-card"><div class="crew-name">Felix C. Amadi</div><div class="crew-title">Protocol</div></div>
+          <div class="crew-card"><div class="crew-name">Olaoluwa Adeyinka</div><div class="crew-title">Protocol</div></div>
+          <div class="crew-card"><div class="crew-name">Nanlop Victor Chollom</div><div class="crew-title">Protocol</div></div>
+        </div>
+      </div>
+
+      <div class="crew-department">
+        <div class="crew-department-title">Catering &amp; Welfare</div>
+        <div class="crew-department-grid">
+          <div class="crew-card"><div class="crew-name">Naheem Isiaka</div><div class="crew-title">Catering Head</div></div>
+          <div class="crew-card"><div class="crew-name">Atabo Ojonugwa</div><div class="crew-title">Welfare</div></div>
+          <div class="crew-card"><div class="crew-name">Victor Ilemuda</div><div class="crew-title">Welfare</div></div>
+        </div>
+      </div>
+
+      <div class="crew-department">
+        <div class="crew-department-title">Medical &amp; Safety</div>
+        <div class="crew-department-grid">
+          <div class="crew-card"><div class="crew-name">James Ejeh</div><div class="crew-title">Fireman</div></div>
+          <div class="crew-card"><div class="crew-name">Emmanuel Eroh</div><div class="crew-title">Security</div></div>
+          <div class="crew-card"><div class="crew-name">Uwem Eduoika</div><div class="crew-title">Security</div></div>
+          <div class="crew-card"><div class="crew-name">Haruna Micheal</div><div class="crew-title">Medical Personnel</div></div>
+          <div class="crew-card"><div class="crew-name">Quwan Ademola</div><div class="crew-title">Medical Personnel</div></div>
+        </div>
+      </div>
+
+      <div class="crew-department">
+        <div class="crew-department-title">Administration</div>
+        <div class="crew-department-grid">
+          <div class="crew-card"><div class="crew-name">Micheal Grace</div><div class="crew-title">Legal Officer</div></div>
+          <div class="crew-card"><div class="crew-name">Esther David</div><div class="crew-title">Language / Culture Consultant</div></div>
+          <div class="crew-card"><div class="crew-name">Numbe Evelyn Mimidoo</div><div class="crew-title">Production Accountant</div></div>
+          <div class="crew-card"><div class="crew-name">Azeez Olawale</div><div class="crew-title">Administration</div></div>
+          <div class="crew-card"><div class="crew-name">John Patrick Atta</div><div class="crew-title">Administration</div></div>
+        </div>
+      </div>
+
+      <div class="crew-department">
+        <div class="crew-department-title">Post Production</div>
+        <div class="crew-department-grid">
+          <div class="crew-card"><div class="crew-name">Busayo Odeku</div><div class="crew-title">Post Production Supervisor</div></div>
+          <div class="crew-card"><div class="crew-name">Ovundah Ihunwo</div><div class="crew-title">Editor</div></div>
+          <div class="crew-card"><div class="crew-name">Muhammed Sarafadeen Korede</div><div class="crew-title">Dailies Editor</div></div>
+          <div class="crew-card"><div class="crew-name">Isaac Obu</div><div class="crew-title">Colorist</div></div>
+          <div class="crew-card"><div class="crew-name">Oladunni Odeku</div><div class="crew-title">VFX / Motion Graphics</div></div>
+          <div class="crew-card"><div class="crew-name">U. Ehizoba Chris</div><div class="crew-title">Graphics Design</div></div>
+          <div class="crew-card"><div class="crew-name">Silas Abada</div><div class="crew-title">Audio Post Production Supervisor</div></div>
+          <div class="crew-card"><div class="crew-name">Chima Akajuku</div><div class="crew-title">Dialogue Edit &amp; Re-Recording Mixer</div></div>
+          <div class="crew-card"><div class="crew-name">Henry Ekene</div><div class="crew-title">ADR Recording Engineer</div></div>
+          <div class="crew-card"><div class="crew-name">Dr. Bayo Adepetun</div><div class="crew-title">SFX &amp; Sound Design</div></div>
+          <div class="crew-card"><div class="crew-name">Akpezi "Zee" Agodo</div><div class="crew-title">SFX &amp; Sound Design</div></div>
+          <div class="crew-card"><div class="crew-name">Martins Lulu</div><div class="crew-title">SFX &amp; Sound Design</div></div>
+          <div class="crew-card"><div class="crew-name">Kyrian Ikoku</div><div class="crew-title">DAPC</div></div>
+        </div>
+      </div>
+
+      <div class="crew-department">
+        <div class="crew-department-title">Music &amp; Original Score</div>
+        <div class="crew-department-grid">
+          <div class="crew-card"><div class="crew-name">Kalinè Njoku</div><div class="crew-title">Music Supervisor</div></div>
+          <div class="crew-card"><div class="crew-name">Adam Songbird</div><div class="crew-title">Original Score</div></div>
+          <div class="crew-card"><div class="crew-name">Jorsh Kolawole</div><div class="crew-title">Original Score</div></div>
+          <div class="crew-card"><div class="crew-name">Silverline Abisoye</div><div class="crew-title">Original Score</div></div>
+          <div class="crew-card"><div class="crew-name">James Adebayo</div><div class="crew-title">Original Score</div></div>
+          <div class="crew-card"><div class="crew-name">Emmanuel Owei</div><div class="crew-title">Original Score</div></div>
+          <div class="crew-card"><div class="crew-name">James Inyang</div><div class="crew-title">Original Score</div></div>
+          <div class="crew-card"><div class="crew-name">Timi Olusoga</div><div class="crew-title">Original Score</div></div>
+          <div class="crew-card"><div class="crew-name">Joshua Anem</div><div class="crew-title">Original Score</div></div>
+          <div class="crew-card"><div class="crew-name">Edamwen Hammerboi</div><div class="crew-title">Original Score</div></div>
+        </div>
+      </div>
+
+      <div class="crew-department">
+        <div class="crew-department-title">Supporting Cast</div>
+        <div class="crew-department-grid">
+          <div class="crew-card"><div class="crew-name">Charles Born</div><div class="crew-title">as CHERLIKE</div></div>
+          <div class="crew-card"><div class="crew-name">Patrick Dante Oke</div><div class="crew-title">as CHIMEKA</div></div>
+          <div class="crew-card"><div class="crew-name">Soibifaa Dokubo</div><div class="crew-title">as AMADI</div></div>
+          <div class="crew-card"><div class="crew-name">Daniel "The Big One" Okosun</div><div class="crew-title">as REVEREND FATHER</div></div>
+          <div class="crew-card"><div class="crew-name">Sydney Idiala</div><div class="crew-title">as Elder</div></div>
+          <div class="crew-card"><div class="crew-name">Tony Goodman Ezemadu</div><div class="crew-title">as Elder</div></div>
+          <div class="crew-card"><div class="crew-name">Samuel Okechukwu Nwachukwu</div><div class="crew-title">as Yemi</div></div>
+          <div class="crew-card"><div class="crew-name">Benjamin Ainekwe</div><div class="crew-title">as Nyesom's Wife</div></div>
+          <div class="crew-card"><div class="crew-name">Cajetan Onwana</div><div class="crew-title">as Simbi</div></div>
+          <div class="crew-card"><div class="crew-name">Obioha Eugene</div><div class="crew-title">as Remi's Newborn</div></div>
+          <div class="crew-card"><div class="crew-name">Boniface Umeh</div><div class="crew-title">as Oprah's Sister</div></div>
+          <div class="crew-card"><div class="crew-name">David Agoda</div><div class="crew-title">as Governor</div></div>
+          <div class="crew-card"><div class="crew-name">Patricia Egbon</div><div class="crew-title">as Chief Welles</div></div>
+          <div class="crew-card"><div class="crew-name">Cheryl Apenosomi Alegieuno</div><div class="crew-title">as Nneoma's Friend</div></div>
+          <div class="crew-card"><div class="crew-name">Gabriella Samson</div><div class="crew-title">as Nneoma's Friend</div></div>
+          <div class="crew-card"><div class="crew-name">Mnena Akpera</div><div class="crew-title">as Nneoma's Friend</div></div>
+          <div class="crew-card"><div class="crew-name">Kayode Aiyegbusi</div><div class="crew-title">as Nneoma's Friend</div></div>
+          <div class="crew-card"><div class="crew-name">Abundance Effiong</div><div class="crew-title">as Nneoma's Friend</div></div>
+          <div class="crew-card"><div class="crew-name">Chizoba Adaeze</div><div class="crew-title">as Chetachi's Friend</div></div>
+          <div class="crew-card"><div class="crew-name">Emmanuel Confidence</div><div class="crew-title">as Chetachi's Friend</div></div>
+          <div class="crew-card"><div class="crew-name">Ellams Ijioma</div><div class="crew-title">as Chetachi's Friend</div></div>
+          <div class="crew-card"><div class="crew-name">Ala Ogar</div><div class="crew-title">as Young Nneoma</div></div>
+          <div class="crew-card"><div class="crew-name">Temple Ikechukwu</div><div class="crew-title">as Young Amadi</div></div>
+          <div class="crew-card"><div class="crew-name">Destiny Augustine</div><div class="crew-title">as Young Chimeke</div></div>
+          <div class="crew-card"><div class="crew-name">Jesse Paul Asogwa</div><div class="crew-title">as Young Chimeke</div></div>
+          <div class="crew-card"><div class="crew-name">Jamin Are O. Chinwendu</div><div class="crew-title">as Amadi's Grandson</div></div>
+          <div class="crew-card"><div class="crew-name">Bayo Blair</div><div class="crew-title">as Vigilante</div></div>
+          <div class="crew-card"><div class="crew-name">Nwachukwu Joseph</div><div class="crew-title">as Dignitary</div></div>
+          <div class="crew-card"><div class="crew-name">Oguche Elisha</div><div class="crew-title">as Governor's Man</div></div>
+          <div class="crew-card"><div class="crew-name">Luter Ikyobo</div><div class="crew-title">as Police</div></div>
+          <div class="crew-card"><div class="crew-name">Ejeh Rapheal</div><div class="crew-title">as Reporter</div></div>
+          <div class="crew-card"><div class="crew-name">Ogezi Jahswill</div><div class="crew-title">as Reporter</div></div>
+          <div class="crew-card"><div class="crew-name">Ayuba Obadiah</div><div class="crew-title">as Reporter</div></div>
+          <div class="crew-card"><div class="crew-name">Abiodun Elizabeth</div><div class="crew-title">as Neighbour</div></div>
+          <div class="crew-card"><div class="crew-name">Amadi Ebuka Kingsley</div><div class="crew-title">as Driver</div></div>
+          <div class="crew-card"><div class="crew-name">Jabidi Iliya Abarshi</div><div class="crew-title">as Ariyike's Driver</div></div>
+          <div class="crew-card"><div class="crew-name">Paul Kennedy</div><div class="crew-title">as Photographer</div></div>
+          <div class="crew-card"><div class="crew-name">Ejinwa Faith Oluchi</div><div class="crew-title">as Matron</div></div>
+        </div>
+      </div>
+
+      <div class="crew-department">
+        <div class="crew-department-title">Songs Featured in Film</div>
+        <div class="crew-song-list">
+          <span>OTU OHINANYA</span>
+          <span>RESTORED</span>
+          <span>SKENTELE</span>
+          <span>ABOBI</span>
+          <span>FORSAKEN</span>
+          <span>Love Letter</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="reveal-line"><div class="reveal-line__inner"></div></div>
+
+<section id="distributors">
+  <div class="dist-bg-overlay">
+    <img src="Remi-&-Nneoma-Poster-Liz-Benson-Ameye.jpg" alt="" loading="lazy" />
+  </div>
+  <div class="section-inner" style="padding-bottom:60px;position:relative;z-index:1;">
+    <div class="section-label reveal" style="justify-content:center;">
+      <span class="line"></span><span>Distributors &amp; Production</span>
+    </div>
+    <h2 class="section-title" style="text-align:center;">
+      <span class="scr d1"><span>Bringing the <em>Vision</em> to Life</span></span>
+    </h2>
+
+    <div class="dist-grid">
+      <div class="dist-card reveal-left">
+        <div class="dist-logo-wrap">
+          <img src="five2 logo.png" alt="Five 2 Media Entertainment" class="dist-logo-img" style="width:100%;max-width:260px;height:auto;margin:0 auto;display:block;" />
+        </div>
+        <div class="dist-role">Production Company</div>
+        <p>A Nigerian-based film and production powerhouse known for acclaimed titles including <em>On the Edge</em> (Prime Video), <em>Full Circle</em>, <em>Extra Mile</em> (AFRIFF Official Selection), and <em>A Night in 2005</em> (Prime Video). Five 2 Media returns with <em>Remi X Nneoma</em>, signaling a bold new direction in character-driven Nollywood storytelling.</p>
+      </div>
+      <div class="dist-card reveal-right">
+        <div class="dist-logo-wrap">
+          <img src="nile logo.png" alt="Nile Entertainment" class="dist-logo-img" style="width:100%;max-width:260px;height:auto;margin:0 auto;display:block;" />
+        </div>
+        <div class="dist-role">Global Distribution</div>
+        <p>Secured global distribution rights for <em>Remi X Nneoma</em>, bringing this powerful Nigerian drama to audiences worldwide. The partnership ensures the film reaches cinemas across Nigeria and international markets, with a nationwide release slated for June 26, 2026 followed by global screenings.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="reveal-line"><div class="reveal-line__inner"></div></div>
+
+<section id="posters">
+  <div class="section-inner" style="padding-bottom:60px;">
+    <div class="section-label reveal"><span class="line"></span><span>Posters</span></div>
+    <h2 class="section-title"><span class="scr d1"><span><em>Film</em> Artwork</span></span></h2>
+    <div class="poster-grid">
+      <div class="poster-card reveal-scale"><img src="Remi-&-Nneoma-Poster-1.jpg" alt="" loading="lazy" /></div>
+      <div class="poster-card reveal-scale delay-1"><img src="15x16-Now-Showing.jpg" alt="" loading="lazy" /></div>
+      <div class="poster-card reveal-scale delay-2"><img src="16x9-Portrait-Remi-&-Nneoma.jpg" alt="" loading="lazy" /></div>
+      <div class="poster-card reveal-scale delay-3"><img src="16x9-Landscape-Remi-&-Nneoma.jpg" alt="" loading="lazy" /></div>
+    </div>
+  </div>
+</section>
+
+<div class="reveal-line"><div class="reveal-line__inner"></div></div>
+
+<section id="trailer">
+  <div class="trailer-bg">
+    <iframe id="mainTrailer" width="100%" height="100%" src="https://www.youtube.com/embed/gVbo9RxZPSw?autoplay=1&mute=1&loop=1&playlist=gVbo9RxZPSw&controls=0&modestbranding=1&rel=0&playsinline=1&enablejsapi=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+  <button id="unmuteBtn" aria-label="Toggle Sound">&#128264; Unmute</button>
+</section>
+
+<section id="more-videos">
+  <div class="section-inner">
+    <div class="section-label reveal"><span class="line"></span><span>Media</span></div>
+    <h2 class="section-title"><span class="scr d1"><span>Behind the <em>Film</em></span></span></h2>
+    <div class="media-grid reveal delay-2">
+      <article class="media-card">
+        <video controls playsinline preload="metadata" poster="thumb-1.jpg">
+          <source src="HERO VIDEOS/TRAIILER 1.mp4" type="video/mp4" />
+        </video>
+        <div class="media-card__label"><span>Clip 01</span><strong>First Look</strong></div>
+      </article>
+      <article class="media-card">
+        <video controls playsinline preload="metadata" poster="thumb-2.jpg">
+          <source src="HERO VIDEOS/TRAILER 2.mp4" type="video/mp4" />
+        </video>
+        <div class="media-card__label"><span>Clip 02</span><strong>Family &amp; Faith</strong></div>
+      </article>
+      <article class="media-card">
+        <video controls playsinline preload="metadata" poster="thumb-3.jpg">
+          <source src="HERO VIDEOS/TRAILER 3.mp4" type="video/mp4" />
+        </video>
+        <div class="media-card__label"><span>Clip 03</span><strong>Cinema Moments</strong></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="release">
+  <div class="release-content">
+    <div class="section-label reveal" style="justify-content:center;"><span class="line"></span><span>Coming Soon</span></div>
+    <h2 class="section-title"><span class="scr d1"><span>In <em>Cinemas</em> This Year</span></span></h2>
+    <div class="release-date reveal delay-2">June 26, 2026<small>Nationwide Release</small></div>
+    <div class="release-grid reveal delay-3">
+      <div class="item"><div class="icon">&#127916;</div><h4>All Nigerian Cinemas</h4><p>Catch REMI &amp; NNEOMA at a cinema near you</p></div>
+      <div class="item"><div class="icon">&#128253;</div><h4>Feature Film</h4><p>A compelling feature-length Nollywood drama</p></div>
+      <div class="item"><div class="icon">&#127917;</div><h4>Five 2 Media + Nile Ent.</h4><p>A landmark collaboration in Nigerian cinema</p></div>
+    </div>
+    <div class="hero-actions reveal delay-4" style="justify-content:center;margin-top:40px;">
+      <a href="https://filmx-event.reachcinema.io/film/e5e4b04a-6e09-44f3-bbfb-4df13d44710b" class="btn btn-primary">Get Tickets</a>
+      <a href="waitlist.html" class="btn btn-outline">Join Waitlist</a>
+    </div>
+  </div>
+</section>
+
+<div class="reveal-line"><div class="reveal-line__inner"></div></div>
+
+<section id="newsletter">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-label reveal" style="justify-content:center;"><span class="line"></span><span>Connect</span></div>
+    <h2 class="section-title"><span class="scr d1"><span>Stay <em>Updated</em></span></span></h2>
+    <p style="color:rgba(252,249,245,.45);margin-top:12px;font-weight:300;" class="reveal delay-2">Get the latest news, behind-the-scenes content, and release updates.</p>
+    <form class="nl-form reveal delay-3" onsubmit="event.preventDefault();alert('Thank you for subscribing!');">
+      <input type="email" placeholder="Enter your email" required />
+      <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span>REMI <em>&amp;</em> NNEOMA — NOW THIS IS NOLLYWOOD — FIVE 2 MEDIA — NILE ENTERTAINMENT — COMING JUNE 26, 2026 —&nbsp;</span>
+    <span>REMI <em>&amp;</em> NNEOMA — NOW THIS IS NOLLYWOOD — FIVE 2 MEDIA — NILE ENTERTAINMENT — COMING JUNE 26, 2026 —&nbsp;</span>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-bg"><img src="Remi-&-Nneoma-Poster-Bisola-&-Ifeayi.jpg" alt="" loading="lazy" /></div>
+  <div class="footer-content">
+    <div class="footer-grid">
+      <div class="footer-brand"><img src="logo.png" alt="REMI &amp; NNEOMA" style="height:15px;width:auto;max-width:100%;margin-bottom:16px;" /><p>A Five 2 Media Entertainment production. In association with Nile Entertainment. Inspired by the biblical story of Ruth and Naomi.</p></div>
+      <div class="footer-col"><h4>Navigate</h4><a href="#story">Story</a><a href="#cast">Cast</a><a href="#crew">Crew</a><a href="#distributors">Distributors</a><a href="#posters">Posters</a><a href="#trailer">Trailer</a><a href="#more-videos">Media</a></div>
+      <div class="footer-col"><h4>Production</h4><a href="#">Five 2 Media</a><a href="#">Nile Entertainment</a><a href="#">Press Kit</a></div>
+      <div class="footer-col"><h4>Connect</h4><a href="#">Instagram</a><a href="#">Twitter / X</a><a href="#">YouTube</a><a href="#">Facebook</a></div>
+    </div>
+      <div class="footer-bottom">
+        <div class="watermark">
+          <img src="WATER MARK.png" alt="" loading="lazy" />
+          <span>DESIGNED BY ZANE</span>
+          <span class="dev-tag">&lt;/DEV&gt;</span>
+        </div>
+        <p>&copy; 2026 Five 2 Media Entertainment. All rights reserved.</p>
+        <p style="font-size:.45rem;color:rgba(200,169,110,.2);letter-spacing:.02em;"><a href="https://www.flaticon.com/free-icons/select" title="select icons" style="color:inherit;text-decoration:none;">Select icons created by Mihimihi - Flaticon</a></p>
+        <div class="footer-socials">
+        <a href="https://www.instagram.com/thenileentertainment/?hl=en" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
+        <a href="https://thenileworld.com" target="_blank" rel="noopener" aria-label="Website"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></a>
+        <a href="https://www.youtube.com/@TheNileEntertainment" target="_blank" rel="noopener" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.5 6.2a2.8 2.8 0 0 0-2-2C18.9 3.5 12 3.5 12 3.5s-6.9 0-8.5.7a2.8 2.8 0 0 0-2 2A29 29 0 0 0 1 12a29 29 0 0 0 .5 5.8 2.8 2.8 0 0 0 2 2c1.6.7 8.5.7 8.5.7s6.9 0 8.5-.7a2.8 2.8 0 0 0 2-2A29 29 0 0 0 23 12a29 29 0 0 0-.5-5.8z"/><polygon points="9.5 8.5 16 12 9.5 15.5"/></svg></a>
+        <a href="https://www.facebook.com/TheNileEntertainment/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3V2z"/></svg></a>
+        <a href="https://nilecinemas.com" target="_blank" rel="noopener" aria-label="Cinemas"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><polygon points="10 8 16 10 10 12"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    const flash = document.getElementById('splash-flash');
+    setTimeout(() => {
+      loader.classList.add('hidden');
+      flash.classList.add('active');
+      setTimeout(() => flash.classList.remove('active'), 400);
+    }, 4500);
+    setTimeout(() => loader.style.display = 'none', 5900);
+  });
+
+  // Hero background video - plays on loop thanks to HTML loop attribute
+  const bgVideo = document.getElementById('bgVideo');
+  // Force play on touch for browsers that block autoplay
+  document.addEventListener('touchstart', () => {
+    if (bgVideo.paused) bgVideo.play().catch(() => {});
+  }, { once: true });
+
+  // === HORIZONTAL CAST SCROLL (desktop wheel + mobile touch) ===
+  const castSection = document.getElementById('cast');
+  const castInner = document.querySelector('.cast-inner');
+  if (castSection && castInner) {
+    // Desktop wheel scroll
+    castSection.addEventListener('wheel', (e) => {
+      const rect = castSection.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        const maxScroll = castInner.scrollWidth - castInner.clientWidth;
+        const canScroll = (e.deltaY > 0 && castInner.scrollLeft < maxScroll) || (e.deltaY < 0 && castInner.scrollLeft > 0);
+        if (canScroll) {
+          e.preventDefault();
+          castInner.scrollLeft += e.deltaY * 1.2;
+        }
+      }
+    }, { passive: false });
+
+    // Mobile touch drag scroll
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchScrollLeft = 0;
+    let isHorizontalDrag = false;
+
+    castSection.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].pageX;
+      touchStartY = e.touches[0].pageY;
+      touchScrollLeft = castInner.scrollLeft;
+      isHorizontalDrag = false;
+    }, { passive: true });
+
+    castSection.addEventListener('touchmove', (e) => {
+      const dx = touchStartX - e.touches[0].pageX;
+      const dy = touchStartY - e.touches[0].pageY;
+      if (!isHorizontalDrag && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 10) {
+        isHorizontalDrag = true;
+      }
+      if (isHorizontalDrag) {
+        e.preventDefault();
+        castInner.scrollLeft = touchScrollLeft + dx;
+      }
+    }, { passive: false });
+  }
+
+  // === AUTO-SCROLL CAST HORIZONTALLY ===
+  (function() {
+    const ci = document.querySelector('.cast-inner');
+    if (!ci) return;
+    let speed = 1.8;
+    let raf = null;
+    let paused = false;
+    let timeout = null;
+
+    function scroll() {
+      if (!paused) {
+        ci.scrollLeft += speed;
+        if (ci.scrollLeft >= ci.scrollWidth - ci.clientWidth) {
+          ci.scrollLeft = 0;
+        }
+      }
+      raf = requestAnimationFrame(scroll);
+    }
+
+    function pause(ms) {
+      paused = true;
+      if (timeout) clearTimeout(timeout);
+      timeout = setTimeout(() => { paused = false; }, ms);
+    }
+
+    ci.addEventListener('mouseenter', () => pause(4000));
+    ci.addEventListener('touchstart', () => pause(6000), { passive: true });
+    ci.addEventListener('wheel', () => pause(4000), { passive: true });
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (!raf) raf = requestAnimationFrame(scroll);
+        } else {
+          if (raf) { cancelAnimationFrame(raf); raf = null; }
+        }
+      });
+    }, { threshold: 0.1 });
+    obs.observe(ci);
+  })();
+
+  // === CONSOLIDATED PERFORMANT SCROLL HANDLER ===
+  const header = document.getElementById('header');
+  const progressBar = document.getElementById('progress-bar');
+  const scrollTopBtn = document.getElementById('scrollTop');
+  const scrollGlow = document.createElement('div');
+  scrollGlow.className = 'scroll-glow';
+  document.body.appendChild(scrollGlow);
+
+  let scrollTick = false;
+
+  window.addEventListener('scroll', () => {
+    if (!scrollTick) {
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+
+        // Progress bar
+        progressBar.style.width = (y / h * 100) + '%';
+
+        // Scroll to top
+        scrollTopBtn.classList.toggle('visible', y > 600);
+
+        // Header Readjustment
+        header.classList.toggle('scrolled', y > 50);
+        // header.classList.toggle('hidden', y > 20 && !document.body.classList.contains('menu-open')); // Disable hiding
+
+        if (y > 50) {
+          header.style.background = 'transparent';
+          header.style.backdropFilter = 'blur(10px)';
+          header.style.webkitBackdropFilter = 'blur(10px)';
+          header.style.height = '100px'; // Shrink slightly
+          header.style.borderBottomColor = 'rgba(200,169,110,0.1)';
+        } else {
+          header.style.background = 'transparent';
+          header.style.backdropFilter = 'none';
+          header.style.webkitBackdropFilter = 'none';
+          header.style.height = 'var(--nav-height)';
+          header.style.borderBottomColor = 'transparent';
+        }
+
+        // Scroll glow
+        scrollGlow.style.opacity = Math.min(1, (y / h) * 0.5 + 0.1);
+
+        scrollTick = false;
+      });
+      scrollTick = true;
+    }
+  }, { passive: true });
+
+  window.dispatchEvent(new Event('scroll'));
+
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const setMenuOpen = (open) => {
+    hamburger.classList.toggle('active', open);
+    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    hamburger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    mobileMenu.classList.toggle('open', open);
+    document.body.classList.toggle('menu-open', open);
+    if (open) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      document.body.style.top = `-${window.scrollY}px`;
+    } else {
+      const scrollY = parseInt(document.body.style.top || '0') * -1;
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+      document.body.style.top = '';
+      window.scrollTo(0, scrollY || 0);
+    }
+  };
+  hamburger.addEventListener('click', () => setMenuOpen(!mobileMenu.classList.contains('open')));
+  document.querySelectorAll('.ml').forEach(l => l.addEventListener('click', () => {
+    setMenuOpen(false);
+  }));
+  const mobileMenuCta = document.querySelector('.mobile-menu__cta');
+  if (mobileMenuCta) mobileMenuCta.addEventListener('click', () => setMenuOpen(false));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) setMenuOpen(false);
+  });
+
+  // Scroll to top
+  scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Cursor glow
+  const glow = document.getElementById('cursorGlow');
+  document.addEventListener('mousemove', e => { glow.style.left = e.clientX + 'px'; glow.style.top = e.clientY + 'px'; });
+
+  // Hero particles
+  const particleContainer = document.getElementById('particles');
+  for (let i = 0; i < 15; i++) {
+    const p = document.createElement('span');
+    p.style.left = Math.random() * 100 + '%';
+    p.style.top = (80 + Math.random() * 20) + '%';
+    p.style.animationDelay = Math.random() * 6 + 's';
+    p.style.animationDuration = (5 + Math.random() * 4) + 's';
+    p.style.width = p.style.height = (1 + Math.random() * 2) + 'px';
+    particleContainer.appendChild(p);
+  }
+
+  // Reveal animations on scroll
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.reveal, .reveal-scale, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
+
+  // Section visibility for fade-in
+  const secObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('sec-visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('section:not(.hero):not(#trailer)').forEach(el => secObserver.observe(el));
+
+  // Crew credits scroll trigger (seamless infinite loop)
+  const crewSection = document.getElementById('crew');
+  if (crewSection) {
+    const crewContent = crewSection.querySelector('.crew-credits-content');
+    if (crewContent) {
+      const clone = crewContent.cloneNode(true);
+      crewContent.parentNode.appendChild(clone);
+    }
+    const crewObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          crewSection.classList.add('credits-running');
+          crewObserver.unobserve(crewSection);
+        }
+      });
+    }, { threshold: 0.1 });
+    crewObserver.observe(crewSection);
+  }
+
+  // Parallax background images
+  const parTax = document.querySelectorAll('.story-bg img, .cast-bg-overlay img, .dist-bg-overlay img, .footer-bg img');
+  if (parTax.length) {
+    window.addEventListener('scroll', () => {
+      const sy = window.scrollY;
+      parTax.forEach(img => {
+        const section = img.closest('section, footer');
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            img.style.transform = `translateY(${sy * 0.06}px) scale(1.05)`;
+          }
+        }
+      });
+    }, { passive: true });
+  }
+
+  // IL CAPO-inspired scroll text reveal
+  const scrObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('revealed'); });
+  }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.scr').forEach(el => scrObserver.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const h = this.getAttribute('href');
+      if (h === '#') return;
+      const target = document.querySelector(h);
+      if (target) { e.preventDefault(); window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' }); }
+    });
+  });
+
+  // === IDYLLIC-INSPIRED SCROLL AESTHETICS ===
+
+  // Animated counters
+  const countEls = document.querySelectorAll('.counter-value');
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.count);
+        if (target && !el.classList.contains('counted')) {
+          el.classList.add('counted');
+          let current = 0;
+          const step = Math.max(1, Math.ceil(target / 80));
+          const timer = setInterval(() => {
+            current = Math.min(current + step, target);
+            el.textContent = current.toLocaleString();
+            if (current >= target) clearInterval(timer);
+          }, 20);
+        }
+      }
+    });
+  }, { threshold: 0.4 });
+  countEls.forEach(el => countObserver.observe(el));
+
+  // === GLOBAL SOUND SYSTEM ===
+  let audioUnlocked = false;
+  let clickAudio = null;
+
+  function getClickAudio() {
+    if (!clickAudio) {
+      clickAudio = new Audio('CLICK SOUND.mp3');
+      clickAudio.volume = 0.4;
+    }
+    return clickAudio;
+  }
+
+  function unlockAudio() {
+    if (audioUnlocked) return;
+    audioUnlocked = true;
+    const a = getClickAudio();
+    a.currentTime = 0;
+    a.play().then(() => { a.pause(); a.currentTime = 0; }).catch(() => {});
+  }
+
+  function playClickSound() {
+    if (!audioUnlocked) unlockAudio();
+    const a = getClickAudio();
+    a.currentTime = 0;
+    a.play().catch(() => {
+      // Fallback: AudioContext beep
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        if (ctx.state === 'suspended') ctx.resume();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.frequency.value = 800;
+        gain.gain.setValueAtTime(0.12, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04);
+        osc.start(ctx.currentTime);
+        osc.stop(ctx.currentTime + 0.04);
+      } catch(e) {}
+    });
+  }
+
+  // Click sound on interactive elements
+  document.addEventListener('mousedown', (e) => {
+    const target = e.target.closest('a, button, [role="button"], .btn, .hamburger, .footer-socials a, .ml, .logo-link, #unmuteBtn, #scrollTop, .desktop-nav a, .poster-card, .crew-item, .cast-profile, .nav a, input, select');
+    if (target) playClickSound();
+  });
+  document.addEventListener('touchstart', (e) => {
+    const target = e.target.closest('a, button, [role="button"], .btn, .hamburger, .footer-socials a, .ml, .logo-link, #unmuteBtn, #scrollTop, .desktop-nav a, .poster-card, .crew-item, .cast-profile, .nav a, input, select');
+    if (target) playClickSound();
+  }, { passive: true });
+
+  const unmuteBtn = document.getElementById('unmuteBtn');
+  let audioActivated = false;
+  let ytPlayer = null;
+
+  // === YOUTUBE IFrame API ===
+  const tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  const firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  window.onYouTubeIframeAPIReady = () => {
+    ytPlayer = new YT.Player('mainTrailer', {
+      events: {
+        onReady: (e) => {
+          e.target.mute();
+          e.target.playVideo();
+        }
+      }
+    });
+  };
+
+  const activateAllAudio = () => {
+    if (!audioActivated) {
+      if (ytPlayer && ytPlayer.unMute) {
+        ytPlayer.unMute();
+        ytPlayer.setVolume(30);
+        ytPlayer.playVideo();
+      }
+      if (unmuteBtn) {
+        unmuteBtn.textContent = '\uD83D\uDD0A Sound On';
+        unmuteBtn.style.borderColor = 'var(--gold)';
+        unmuteBtn.style.color = 'var(--gold)';
+      }
+      audioActivated = true;
+    }
+  };
+
+  const toggleTrailerSound = () => {
+    if (!ytPlayer) return;
+    if (audioActivated) {
+      if (ytPlayer.isMuted()) {
+        ytPlayer.unMute();
+        ytPlayer.setVolume(30);
+        unmuteBtn.textContent = '\uD83D\uDD0A Sound On';
+        unmuteBtn.style.borderColor = 'var(--gold)';
+        unmuteBtn.style.color = 'var(--gold)';
+      } else {
+        ytPlayer.mute();
+        unmuteBtn.textContent = '\uD83D\uDD07 Sound Off';
+        unmuteBtn.style.borderColor = 'rgba(255,255,255,.2)';
+        unmuteBtn.style.color = 'var(--cream)';
+      }
+    } else {
+      activateAllAudio();
+    }
+  };
+
+  if (unmuteBtn) {
+    unmuteBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleTrailerSound();
+    });
+  }
+
+  // Watch Trailer buttons scroll + play
+  document.querySelectorAll('a[href="#trailer"]').forEach(link => {
+    link.addEventListener('click', () => {
+      setTimeout(() => {
+        if (ytPlayer && ytPlayer.playVideo) { ytPlayer.playVideo(); activateAllAudio(); }
+      }, 1000);
+    });
+  });
+
+  // === ROBUST MOBILE MEDIA UNLOCK ===
+  let mediaUnlocked = false;
+  const unlockMedia = () => {
+    if (mediaUnlocked) return;
+    mediaUnlocked = true;
+    
+    // Force hero video to play if stalled
+    if (bgVideo.paused) {
+      bgVideo.play().catch(() => {});
+    }
+    
+    // Unlock audio context
+    unlockAudio();
+
+    // Activate All Audio
+    activateAllAudio();
+
+    // Remove listener after success
+    document.removeEventListener('touchstart', unlockMedia);
+    document.removeEventListener('click', unlockMedia);
+  };
+  document.addEventListener('touchstart', unlockMedia, { passive: true });
+  document.addEventListener('click', unlockMedia, { passive: true });
+
+  // === HORIZONTAL SCROLL FOR POSTERS (Touch + Wheel) ===
+  const posterGrid = document.querySelector('.poster-grid');
+  if (posterGrid) {
+    posterGrid.addEventListener('wheel', (e) => {
+      if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) {
+        e.preventDefault();
+        posterGrid.scrollLeft += e.deltaY;
+      }
+    }, { passive: false });
+    let pTouchStartX = 0, pTouchScrollLeft = 0, pIsDragging = false;
+    posterGrid.addEventListener('touchstart', (e) => {
+      pTouchStartX = e.touches[0].pageX;
+      pTouchScrollLeft = posterGrid.scrollLeft;
+      pIsDragging = false;
+    }, { passive: true });
+    posterGrid.addEventListener('touchmove', (e) => {
+      const dx = pTouchStartX - e.touches[0].pageX;
+      if (!pIsDragging && Math.abs(dx) > 5) pIsDragging = true;
+      if (pIsDragging) {
+        e.preventDefault();
+        posterGrid.scrollLeft = pTouchScrollLeft + dx;
+      }
+    }, { passive: false });
+  }
+
+  // === POSTER LIGHTBOX (GALLERY VIEWER) ===
+  (function() {
+    const lightbox = document.getElementById('posterLightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbCounter = document.getElementById('lbCounter');
+    const lbClose = document.getElementById('lbClose');
+    const lbPrev = document.getElementById('lbPrev');
+    const lbNext = document.getElementById('lbNext');
+    const cards = Array.from(document.querySelectorAll('.poster-card'));
+    const sources = cards.map(card => card.querySelector('img').src);
+    let current = 0;
+
+    function open(idx) {
+      current = idx;
+      lbImg.src = sources[current];
+      lbCounter.textContent = (current + 1) + ' / ' + sources.length;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function prev() {
+      current = (current - 1 + sources.length) % sources.length;
+      lbImg.src = sources[current];
+      lbCounter.textContent = (current + 1) + ' / ' + sources.length;
+    }
+
+    function next() {
+      current = (current + 1) % sources.length;
+      lbImg.src = sources[current];
+      lbCounter.textContent = (current + 1) + ' / ' + sources.length;
+    }
+
+    cards.forEach((card, i) => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.poster-card')) open(i);
+      });
+    });
+
+    lbClose.addEventListener('click', close);
+    lbPrev.addEventListener('click', prev);
+    lbNext.addEventListener('click', next);
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) close();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
+    });
+  })();
+
+  // === FAIRY EFFECT ON LOGO HOVER ===
+  const logoLink = document.querySelector('.logo-link');
+  if (logoLink) {
+    logoLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    logoLink.addEventListener('mouseenter', (e) => {
+      const rect = logoLink.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      for (let i = 0; i < 16; i++) {
+        const p = document.createElement('span');
+        p.className = 'fairy-particle';
+        const angle = Math.random() * 360;
+        const dist = 50 + Math.random() * 120;
+        p.style.left = cx + 'px';
+        p.style.top = cy + 'px';
+        p.style.setProperty('--tx', Math.cos(angle * Math.PI / 180) * dist + 'px');
+        p.style.setProperty('--ty', Math.sin(angle * Math.PI / 180) * dist + 'px');
+        p.style.width = p.style.height = (3 + Math.random() * 5) + 'px';
+        p.style.animationDuration = (0.5 + Math.random() * 0.6) + 's';
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 1200);
+      }
+    });
+  }
+
+  // === ENHANCED NAV ANIMATION ===
+  document.querySelectorAll('nav.desktop-nav a').forEach(link => {
+    link.addEventListener('mouseenter', function() {
+      this.style.textShadow = '0 0 25px rgba(200,169,110,.4)';
+    });
+    link.addEventListener('mouseleave', function() {
+      this.style.textShadow = '';
+    });
+  });
+  const posterMap = {
+    'euchariaanunobi':'Remi-&-Nneoma-Poster--Eucharia-Anunobi.jpg',
+    'kelechiudegbe':'Remi-&-Nneoma-Poster-Kelechi-Udegbe.jpg',
+    'kunlecokr':'Remi-&-Nneoma-Poster-Kunle-Coker.jpg',
+    'lizbenson_ameye':'Remi-&-Nneoma-Poster-Liz-Benson-Ameye.jpg',
+    'marthaehinome':'Remi-&-Nneoma-Martha--Ehinome.jpg',
+    'ovunda':'Remi-&-Nneoma-Ovunda.jpg'
+  };
+  document.querySelectorAll('.cast-avatar img').forEach(img => {
+    const src = img.getAttribute('src');
+    const handle = src ? src.split('/').pop().split('?')[0] : '';
+    if (!handle || handle.includes('ui-avatars') || src.includes('wikimedia')) return;
+    const sources = [
+      `https://ig-snap.vercel.app/api?username=${handle}`,
+      `https://ig.r9it.com/image/${handle}`
+    ];
+    if (posterMap[handle]) sources.push(posterMap[handle]);
+    let idx = 0;
+    const load = () => {
+      if (idx >= sources.length) return;
+      const probe = new Image();
+      probe.crossOrigin = 'anonymous';
+      probe.onload = () => { if (img.src !== probe.src) img.src = probe.src; };
+      probe.onerror = () => { idx++; load(); };
+      probe.src = sources[idx];
+    };
+    load();
+  });
+
+</script>
+
+<div class="poster-lightbox" id="posterLightbox">
+  <button class="lb-close" id="lbClose">&times;</button>
+  <button class="lb-arrow lb-prev" id="lbPrev">&lsaquo;</button>
+  <button class="lb-arrow lb-next" id="lbNext">&rsaquo;</button>
+  <img src="" alt="" id="lbImg" />
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
+</body>
+</html>
